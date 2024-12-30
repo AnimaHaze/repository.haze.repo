@@ -1,0 +1,5 @@
+﻿1.1.0
+- changes to run on Kodi #20
+
+1.0.0
+- initial version

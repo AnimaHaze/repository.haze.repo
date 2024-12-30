@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="repository.haze" name="AnimaHaze Repo" version="1.1" provider-name="AnimaHaze">
+    <extension point="xbmc.addon.repository" name="AH Filme 47">
+        <dir>
+            <info compressed="false">https://raw.githubusercontent.com/AnimaHaze/repository.haze/main/repo/zips/addons.xml</info>
+            <checksum>https://raw.githubusercontent.com/AnimaHaze/repository.haze/main/repo/zips/addons.xml.md5</checksum>
+            <datadir zip="true">https://raw.githubusercontent.com/AnimaHaze/repository.haze/main/repo/zips/</datadir>
+        </dir>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <summary>AnimaHaze AllInOne Repository</summary>
+        <description>Was geht</description>
+        <disclaimer></disclaimer>
+        <platform>all</platform>
+        <assets>
+            <icon>icon.png</icon>
+            <fanart>fanart.jpg</fanart>
+        </assets>
+    </extension>
+</addon>

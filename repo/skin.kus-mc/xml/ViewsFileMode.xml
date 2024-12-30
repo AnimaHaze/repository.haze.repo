@@ -1,0 +1,4480 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+	<include name="CommonRootView">
+		<control type="group">
+			<visible>Control.IsVisible(50)</visible>
+			<include>VisibleFadeEffect</include>
+			<include condition="String.IsEqual(Skin.AspectRatio,4:3)">TallListContainer</include>
+			<left>20</left>
+			<width>1920</width>
+			<control type="list" id="50">
+				<include condition="String.IsEqual(Skin.AspectRatio,4:3)">TallListSlide</include>
+				<top>20</top>
+				<width>705</width>
+				<height>910</height>
+				<onleft>3</onleft>
+				<onright>650</onright>
+				<onup>50</onup>
+				<ondown>50</ondown>
+				<viewtype label="535">list</viewtype>
+				<pagecontrol>650</pagecontrol>
+				<scrolltime>200</scrolltime>
+				<itemlayout height="70" width="1004">
+					<control type="image">
+						<left>4</left>
+						<top>5</top>
+						<width>696</width>
+						<height>60</height>
+						<texture colordiffuse="button.nf">backgrounds/white.png</texture>
+					</control>
+					<control type="label">
+						<left>19</left>
+						<top>5</top>
+						<width>635</width>
+						<height>60</height>
+						<font>label</font>
+						<textcolor>white</textcolor>
+						<selectedcolor>$INFO[Skin.String(color.500)]</selectedcolor>
+						<shadowcolor>black</shadowcolor>
+						<align>left</align>
+						<aligny>center</aligny>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+					<control type="image">
+						<left>655</left>
+						<top>15</top>
+						<width>45</width>
+						<height>40</height>
+						<texture>$INFO[ListItem.Overlay]</texture>
+						<visible>Window.IsVisible(Videos) + !ListItem.IsResumable</visible>
+					</control>
+					<control type="image">
+						<left>655</left>
+						<top>15</top>
+						<width>45</width>
+						<height>40</height>
+						<texture>OverlayWatching.png</texture>
+						<visible>Window.IsVisible(Videos) + ListItem.IsResumable</visible>
+					</control>
+				</itemlayout>
+				<focusedlayout height="70" width="1004">
+					<control type="image">
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<animation type="focus" loop="false" reversible="false">
+							<effect type="zoom" start="95" end="110" center="auto" tween="sine" easing="out" time="200"/>
+						</animation>
+						<left>33</left>
+						<top>8</top>
+						<width>640</width>
+						<height>60</height>
+						<texture colordiffuse="black">backgrounds/white.png</texture>
+						<animation effect="fade" start="100" end="75" time="200" condition="Control.HasFocus(60)">Conditional</animation>
+					</control>
+					<control type="image">
+						<animation type="focus" loop="false" reversible="false">
+							<effect type="zoom" start="95" end="110" center="auto" tween="sine" easing="out" time="200"/>
+						</animation>
+						<left>30</left>
+						<top>5</top>
+						<width>640</width>
+						<height>60</height>
+						<texture colordiffuse="$INFO[Skin.String(color.500)]">backgrounds/white.png</texture>
+						<animation effect="fade" start="100" end="75" time="200" condition="Control.HasFocus(60)">Conditional</animation>
+					</control>
+					<control type="label">
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<animation type="focus" loop="false" reversible="false">
+							<effect type="zoom" start="95" end="110" center="auto" tween="sine" easing="out" time="200"/>
+						</animation>
+						<left>50</left>
+						<top>5</top>
+						<width>580</width>
+						<height>60</height>
+						<font>label</font>
+						<textcolor>black</textcolor>
+						<selectedcolor>black</selectedcolor>
+						<align>left</align>
+						<aligny>center</aligny>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+					<control type="label">
+						<animation type="focus" loop="false" reversible="false">
+							<effect type="zoom" start="95" end="110" center="auto" tween="sine" easing="out" time="200"/>
+						</animation>
+						<left>50</left>
+						<top>5</top>
+						<width>580</width>
+						<height>60</height>
+						<font>label</font>
+						<textcolor>white</textcolor>
+						<selectedcolor>$INFO[Skin.String(color.500)]</selectedcolor>
+						<align>left</align>
+						<aligny>center</aligny>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+					<control type="image">
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>658</left>
+						<top>18</top>
+						<width>45</width>
+						<height>40</height>
+						<texture colordiffuse="black">$INFO[ListItem.Overlay]</texture>
+						<visible>Window.IsVisible(Videos) + !ListItem.IsResumable</visible>
+					</control>
+					<control type="image">
+						<left>655</left>
+						<top>15</top>
+						<width>45</width>
+						<height>40</height>
+						<texture>$INFO[ListItem.Overlay]</texture>
+						<visible>Window.IsVisible(Videos) + !ListItem.IsResumable</visible>
+					</control>
+					<control type="image">
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>658</left>
+						<top>18</top>
+						<width>45</width>
+						<height>40</height>
+						<texture colordiffuse="black">OverlayWatching.png</texture>
+						<visible>Window.IsVisible(Videos) + ListItem.IsResumable</visible>
+					</control>
+					<control type="image">
+						<left>655</left>
+						<top>15</top>
+						<width>45</width>
+						<height>40</height>
+						<texture>OverlayWatching.png</texture>
+						<visible>Window.IsVisible(Videos) + ListItem.IsResumable</visible>
+					</control>
+				</focusedlayout>
+			</control>
+			<control type="group">
+				<visible>Skin.HasSetting(HideInfoVideo)</visible>
+				<visible>Container.Content(Movies) | Container.Content(Sets) | Container.Content(Seasons) | Container.Content(TVShows) | Container.Content(Episodes)</visible>
+				<control type="group">
+				<visible>!Skin.HasSetting(TMDbVideo)</visible>
+				<visible>!String.IsEmpty(ListItem.Genre)</visible>
+					<control type="image">
+						<visible>Skin.HasSetting(HideLogoVideo)</visible>
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>773</left>
+						<top>33</top>
+						<width>600</width>
+						<height>232</height>
+						<aspectratio>keep</aspectratio>
+						<texture colordiffuse="black">$INFO[Window(Home).Property(TMDbHelper.ListItem.clearlogo)]</texture>
+					</control>
+					<control type="image">
+						<visible>Skin.HasSetting(HideLogoVideo)</visible>
+						<left>770</left>
+						<top>30</top>
+						<width>600</width>
+						<height>232</height>
+						<aspectratio>keep</aspectratio>
+						<texture>$INFO[Window(Home).Property(TMDbHelper.ListItem.clearlogo)]</texture>
+					</control>
+				</control>
+				<control type="image"><!--Fallback-->
+					<visible>Skin.HasSetting(HideLogoVideo)</visible>
+					<visible>!Skin.HasSetting(Shadow)</visible>
+					<left>773</left>
+					<top>33</top>
+					<width>600</width>
+					<height>232</height>
+					<aspectratio>keep</aspectratio>
+					<texture colordiffuse="black">$INFO[ListItem.Art(clearlogo)]</texture>
+					<visible>String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.clearlogo))</visible>
+				</control>
+				<control type="image"><!--Fallback-->
+					<visible>Skin.HasSetting(HideLogoVideo)</visible>
+					<left>770</left>
+					<top>30</top>
+					<width>600</width>
+					<height>232</height>
+					<aspectratio>keep</aspectratio>
+					<texture>$INFO[ListItem.Art(clearlogo)]</texture>
+					<visible>String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.clearlogo))</visible>
+				</control>
+				<control type="group">
+				<visible>Skin.HasSetting(TMDbVideo)</visible>
+					<control type="image">
+						<visible>Skin.HasSetting(HideLogoVideo)</visible>
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>773</left>
+						<top>33</top>
+						<width>600</width>
+						<height>232</height>
+						<aspectratio>keep</aspectratio>
+						<texture colordiffuse="black">$INFO[ListItem.Art(clearlogo)]</texture>
+					</control>
+					<control type="image">
+						<visible>Skin.HasSetting(HideLogoVideo)</visible>
+						<left>770</left>
+						<top>30</top>
+						<width>600</width>
+						<height>232</height>
+						<aspectratio>keep</aspectratio>
+						<texture>$INFO[ListItem.Art(clearlogo)]</texture>
+					</control>
+				</control>
+				<control type="group">
+					<visible>!Skin.HasSetting(TMDbVideo)</visible>
+					<control type="image">
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>7957</left>
+						<top>312</top>
+						<width>400</width>
+						<height>180</height>
+						<aspectratio align="left" aligny="bottom">keep</aspectratio>
+						<texture colordiffuse="black">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.CharacterArt)]</texture>
+						<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.CharacterArt))</visible>
+					</control>
+					<control type="image">
+						<left>795</left>
+						<top>310</top>
+						<width>400</width>
+						<height>180</height>
+						<aspectratio align="left" aligny="bottom">keep</aspectratio>
+						<texture>$INFO[Window(Home).Property(SkinHelper.ListItem.Art.CharacterArt)]</texture>
+						<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.CharacterArt))</visible>
+					</control>
+					<control type="image">
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>7957</left>
+						<top>312</top>
+						<width>400</width>
+						<height>180</height>
+						<aspectratio align="left" aligny="bottom">keep</aspectratio>
+						<texture colordiffuse="black">$INFO[ListItem.Art(tvshow.characterart)]</texture>
+						<visible>String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.CharacterArt))</visible>
+					</control>
+					<control type="image">
+						<left>795</left>
+						<top>310</top>
+						<width>400</width>
+						<height>180</height>
+						<aspectratio align="left" aligny="bottom">keep</aspectratio>
+						<texture>$INFO[ListItem.Art(tvshow.characterart)]</texture>
+						<visible>String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.CharacterArt))</visible>
+					</control>
+				</control>
+				<control type="group">
+					<visible>Skin.HasSetting(TMDbVideo)</visible>
+					<control type="image">
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>7957</left>
+						<top>312</top>
+						<width>400</width>
+						<height>180</height>
+						<aspectratio align="left" aligny="bottom">keep</aspectratio>
+						<texture colordiffuse="black">$INFO[ListItem.Art(tvshow.characterart)]</texture>
+					</control>
+					<control type="image">
+						<left>795</left>
+						<top>310</top>
+						<width>400</width>
+						<height>180</height>
+						<aspectratio align="left" aligny="bottom">keep</aspectratio>
+						<texture>$INFO[ListItem.Art(tvshow.characterart)]</texture>
+					</control>
+				</control>
+				<control type="group">
+					<visible>Skin.HasSetting(HideFlagVideo)</visible>
+					<control type="list" id="123">
+						<left>3000</left>
+						<height>1</height>
+						<width>1</width>
+						<autoscroll>true</autoscroll>
+						<scrolltime>3000</scrolltime>
+						<itemlayout/>
+						<focusedlayout/>
+						<content>plugin://script.embuary.helper/?info=getresourceimages&addon=resource.images.studios.coloured&separator='" / "'&string='$ESCINFO[ListItem.Studio]'</content>
+					</control>
+					<control type="image">
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>1217</left>
+						<top>467</top>
+						<width>150</width>
+						<height>150</height>
+						<aspectratio align="center" aligny="center">keep</aspectratio>
+						<texture colordiffuse="black">$INFO[Container(123).ListItem.Icon]</texture>
+						<fadetime>300</fadetime>
+					</control>
+					<control type="image">
+						<left>1215</left>
+						<top>465</top>
+						<width>150</width>
+						<height>150</height>
+						<aspectratio align="center" aligny="center">keep</aspectratio>
+						<texture>$INFO[Container(123).ListItem.Icon]</texture>
+						<fadetime>300</fadetime>
+					</control>
+				</control>
+				<control type="group">
+					<visible>Container.Content(Movies) | Container.Content(Seasons) | Container.Content(TVShows) | Container.Content(Episodes)</visible>
+					<visible>!String.IsEmpty(ListItem.Genre)</visible>
+					<control type="image">
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>777</left>
+						<top>482</top>
+						<width>64</width>
+						<height>64</height>
+						<aspectratio>keep</aspectratio>
+						<texture colordiffuse="black">icons/calendar.png</texture>
+					</control>
+					<control type="image">
+						<left>775</left>
+						<top>480</top>
+						<width>64</width>
+						<height>64</height>
+						<aspectratio>keep</aspectratio>
+						<texture>icons/calendar.png</texture>
+					</control>
+					<control type="label">
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>837</left>
+						<top>497</top>
+						<width>645</width>
+						<height>35</height>
+						<font>button2</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<textcolor>black</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label fallback=".....">$INFO[Window(Home).Property(TMDbHelper.ListItem.Premiered)]</label>
+						<visible>!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Premiered))</visible>
+					</control>
+					<control type="label">
+						<left>835</left>
+						<top>495</top>
+						<width>645</width>
+						<height>35</height>
+						<font>button2</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<textcolor>$INFO[Skin.String(color.500)]</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label fallback="[COLORgrey].....[/COLOR]">$INFO[Window(Home).Property(TMDbHelper.ListItem.Premiered)]</label>
+						<visible>!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Premiered))</visible>
+					</control>
+					<control type="label"><!--Fallback-->
+						<left>837</left>
+						<top>497</top>
+						<width>645</width>
+						<height>35</height>
+						<font>button2</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<textcolor>black</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label fallback=".....">$INFO[ListItem.Premiered]</label>
+						<visible>String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Premiered))</visible>
+					</control>
+					<control type="label"><!--Fallback-->
+						<left>835</left>
+						<top>495</top>
+						<width>645</width>
+						<height>35</height>
+						<font>button2</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<textcolor>$INFO[Skin.String(color.500)]</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label fallback="[COLORgrey].....[/COLOR]">$INFO[ListItem.Premiered]</label>
+						<visible>String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Premiered))</visible>
+					</control>
+					<control type="image">
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>777</left>
+						<top>527</top>
+						<width>64</width>
+						<height>64</height>
+						<aspectratio>keep</aspectratio>
+						<texture colordiffuse="black">icons/clock.png</texture>
+					</control>
+					<control type="image">
+						<left>775</left>
+						<top>525</top>
+						<width>64</width>
+						<height>64</height>
+						<aspectratio>keep</aspectratio>
+						<texture>icons/clock.png</texture>
+					</control>
+					<control type="label">
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>837</left>
+						<top>542</top>
+						<width>645</width>
+						<height>35</height>
+						<font>button2</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<textcolor>black</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label fallback=".....">$INFO[Window(Home).Property(TMDbHelper.ListItem.Duration_HHMM)]</label>
+						<visible>!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Duration))</visible>
+					</control>
+					<control type="label">
+						<left>835</left>
+						<top>540</top>
+						<width>645</width>
+						<height>35</height>
+						<font>button2</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<textcolor>$INFO[Skin.String(color.500)]</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label fallback="[COLORgrey].....[/COLOR]">$INFO[Window(Home).Property(TMDbHelper.ListItem.Duration_HHMM)]</label>
+						<visible>!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Duration))</visible>
+					</control>
+					<control type="label"><!--Fallback-->
+						<left>837</left>
+						<top>542</top>
+						<width>645</width>
+						<height>35</height>
+						<font>button2</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<textcolor>black</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label fallback=".....">$INFO[ListItem.Duration]</label>
+						<visible>String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Duration))</visible>
+					</control>
+					<control type="label"><!--Fallback-->
+						<left>835</left>
+						<top>540</top>
+						<width>645</width>
+						<height>35</height>
+						<font>button2</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<textcolor>$INFO[Skin.String(color.500)]</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label fallback="[COLORgrey].....[/COLOR]">$INFO[ListItem.Duration]</label>
+						<visible>String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Duration))</visible>
+					</control>
+					<control type="image">
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>772</left>
+						<top>567</top>
+						<width>64</width>
+						<height>64</height>
+						<aspectratio>keep</aspectratio>
+						<texture colordiffuse="black">icons/genre.png</texture>
+					</control>
+					<control type="image">
+						<left>775</left>
+						<top>565</top>
+						<width>64</width>
+						<height>64</height>
+						<aspectratio>keep</aspectratio>
+						<texture>icons/genre.png</texture>
+					</control>
+					<control type="label">
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>837</left>
+						<top>582</top>
+						<width>645</width>
+						<height>35</height>
+						<font>button2</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<textcolor>black</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label fallback=".....">$INFO[Window(Home).Property(TMDbHelper.ListItem.Genre)]</label>
+						<visible>!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Genre))</visible>
+						<scroll>true</scroll>
+					</control>
+					<control type="label">
+						<left>835</left>
+						<top>580</top>
+						<width>645</width>
+						<height>35</height>
+						<font>button2</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<textcolor>$INFO[Skin.String(color.500)]</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label fallback="[COLORgrey].....[/COLOR]">$INFO[Window(Home).Property(TMDbHelper.ListItem.Genre)]</label>
+						<visible>!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Genre))</visible>
+						<scroll>true</scroll>
+					</control>
+					<control type="label"><!--Fallback-->
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>837</left>
+						<top>582</top>
+						<width>645</width>
+						<height>35</height>
+						<font>button2</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<textcolor>black</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label fallback=".....">$INFO[ListItem.Genre]</label>
+						<visible>String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Genre))</visible>
+						<scroll>true</scroll>
+					</control>
+					<control type="label"><!--Fallback-->
+						<left>835</left>
+						<top>580</top>
+						<width>645</width>
+						<height>35</height>
+						<font>button2</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<textcolor>$INFO[Skin.String(color.500)]</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label fallback="[COLORgrey].....[/COLOR]">$INFO[ListItem.Genre]</label>
+						<visible>String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Genre))</visible>
+						<scroll>true</scroll>
+					</control>
+				</control>
+				<control type="group">
+					<visible>Container.Content(Sets)</visible>
+					<control type="group">
+						<control type="image">
+							<visible>Skin.HasSetting(HideLogoVideo)</visible>
+							<visible>!Skin.HasSetting(Shadow)</visible>
+							<left>773</left>
+							<top>33</top>
+							<width>600</width>
+							<height>232</height>
+							<aspectratio>keep</aspectratio>
+							<texture colordiffuse="black">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.Clearlogo)]</texture>
+							<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.Clearlogo))</visible>
+						</control>
+						<control type="image">
+							<visible>Skin.HasSetting(HideLogoVideo)</visible>
+							<left>770</left>
+							<top>30</top>
+							<width>600</width>
+							<height>232</height>
+							<aspectratio>keep</aspectratio>
+							<texture>$INFO[Window(Home).Property(SkinHelper.ListItem.Art.Clearlogo)]</texture>
+							<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.Clearlogo))</visible>
+						</control>
+					</control>
+					<control type="image">
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>777</left>
+						<top>482</top>
+						<width>64</width>
+						<height>64</height>
+						<aspectratio>keep</aspectratio>
+						<texture colordiffuse="black">icons/calendar.png</texture>
+					</control>
+					<control type="image">
+						<left>775</left>
+						<top>480</top>
+						<width>64</width>
+						<height>64</height>
+						<aspectratio>keep</aspectratio>
+						<texture>icons/calendar.png</texture>
+					</control>
+					<control type="label">
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>837</left>
+						<top>497</top>
+						<width>645</width>
+						<height>35</height>
+						<font>button2</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<textcolor>black</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label fallback=".....">$INFO[Window(Home).Property(TMDbHelper.ListItem.Set.Years)]</label>
+						<visible>!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Set.Years))</visible>
+					</control>
+					<control type="label">
+						<left>835</left>
+						<top>495</top>
+						<width>645</width>
+						<height>35</height>
+						<font>button2</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<textcolor>$INFO[Skin.String(color.500)]</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label fallback="[COLORgrey].....[/COLOR]">$INFO[Window(Home).Property(TMDbHelper.ListItem.Set.Years)]</label>
+						<visible>!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Set.Years))</visible>
+					</control>
+					<control type="label"><!--Fallback-->
+						<left>837</left>
+						<top>497</top>
+						<width>645</width>
+						<height>35</height>
+						<font>button2</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<textcolor>black</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label fallback=".....">$INFO[Window(Home).Property(SkinHelper.ListItem.Year)]</label>
+						<visible>String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Set.Years))</visible>
+					</control>
+					<control type="label"><!--Fallback-->
+						<left>835</left>
+						<top>495</top>
+						<width>645</width>
+						<height>35</height>
+						<font>button2</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<textcolor>$INFO[Skin.String(color.500)]</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label fallback="[COLORgrey].....[/COLOR]">$INFO[Window(Home).Property(SkinHelper.ListItem.Year)]</label>
+						<visible>String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Set.Years))</visible>
+					</control>
+					<control type="image">
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>777</left>
+						<top>527</top>
+						<width>64</width>
+						<height>64</height>
+						<aspectratio>keep</aspectratio>
+						<texture colordiffuse="black">icons/clock.png</texture>
+					</control>
+					<control type="image">
+						<left>775</left>
+						<top>525</top>
+						<width>64</width>
+						<height>64</height>
+						<aspectratio>keep</aspectratio>
+						<texture>icons/clock.png</texture>
+					</control>
+					<control type="label">
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>837</left>
+						<top>542</top>
+						<width>645</width>
+						<height>35</height>
+						<font>button2</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<textcolor>black</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label fallback=".....">$INFO[Window(Home).Property(SkinHelper.ListItem.Duration)]</label>
+					</control>
+					<control type="label">
+						<left>835</left>
+						<top>540</top>
+						<width>645</width>
+						<height>35</height>
+						<font>button2</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<textcolor>$INFO[Skin.String(color.500)]</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label fallback="[COLORgrey].....[/COLOR]">$INFO[Window(Home).Property(SkinHelper.ListItem.Duration)]</label>
+					</control>
+					<control type="image">
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>777</left>
+						<top>567</top>
+						<width>64</width>
+						<height>64</height>
+						<aspectratio>keep</aspectratio>
+						<texture colordiffuse="black">icons/genre.png</texture>
+					</control>
+					<control type="image">
+						<left>775</left>
+						<top>565</top>
+						<width>64</width>
+						<height>64</height>
+						<aspectratio>keep</aspectratio>
+						<texture>icons/genre.png</texture>
+					</control>
+					<control type="label">
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>837</left>
+						<top>582</top>
+						<width>645</width>
+						<height>35</height>
+						<font>button2</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<textcolor>black</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label fallback=".....">$INFO[Window(Home).Property(TMDbHelper.ListItem.Set.Genres)]</label>
+						<visible>!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Set.Genres))</visible>
+						<scroll>true</scroll>
+					</control>
+					<control type="label">
+						<left>835</left>
+						<top>580</top>
+						<width>645</width>
+						<height>35</height>
+						<font>button2</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<textcolor>$INFO[Skin.String(color.500)]</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label fallback="[COLORgrey].....[/COLOR]">$INFO[Window(Home).Property(TMDbHelper.ListItem.Set.Genres)]</label>
+						<visible>!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Set.Genres))</visible>
+						<scroll>true</scroll>
+					</control>
+					<control type="label"><!--Fallback-->
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>837</left>
+						<top>582</top>
+						<width>645</width>
+						<height>35</height>
+						<font>button2</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<textcolor>black</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label fallback=".....">$INFO[Window(Home).Property(SkinHelper.ListItem.Genre)]</label>
+						<visible>String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Set.Genres))</visible>
+						<scroll>true</scroll>
+					</control>
+					<control type="label"><!--Fallback-->
+						<left>835</left>
+						<top>580</top>
+						<width>645</width>
+						<height>35</height>
+						<font>button2</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<textcolor>$INFO[Skin.String(color.500)]</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label fallback="[COLORgrey].....[/COLOR]">$INFO[Window(Home).Property(SkinHelper.ListItem.Genre)]</label>
+						<visible>String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Set.Genres))</visible>
+						<scroll>true</scroll>
+					</control>
+					<control type="image">
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>777</left>
+						<top>612</top>
+						<width>64</width>
+						<height>64</height>
+						<aspectratio>keep</aspectratio>
+						<texture colordiffuse="black">icons/star.png</texture>
+					</control>
+					<control type="image">
+						<left>775</left>
+						<top>610</top>
+						<width>64</width>
+						<height>64</height>
+						<aspectratio>keep</aspectratio>
+						<texture>icons/star.png</texture>
+					</control>
+					<control type="label">
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>837</left>
+						<top>627</top>
+						<width>625</width>
+						<height>35</height>
+						<font>button2</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<textcolor>black</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label fallback=".....">$INFO[Window(Home).Property(TMDbHelper.ListItem.Set.Rating)]</label>
+						<visible>!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Set.Rating))</visible>
+						<scroll>true</scroll>
+					</control>
+					<control type="label">
+						<left>835</left>
+						<top>625</top>
+						<width>645</width>
+						<height>35</height>
+						<font>button2</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<textcolor>$INFO[Skin.String(color.500)]</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label fallback="[COLORgrey].....[/COLOR]">$INFO[Window(Home).Property(TMDbHelper.ListItem.Set.Rating)]</label>
+						<visible>!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Set.Rating))</visible>
+						<scroll>true</scroll>
+					</control>
+					<control type="image">
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>796</left>
+						<top>665</top>
+						<width>685</width>
+						<height>1</height>
+						<texture colordiffuse="black">backgrounds/white.png</texture>
+						<visible>Container.Content(Sets)</visible>
+					</control>
+					<control type="image">
+						<left>795</left>
+						<top>665</top>
+						<width>685</width>
+						<height>1</height>
+						<texture colordiffuse="$INFO[Skin.String(color.500)]">backgrounds/white.png</texture>
+						<visible>Container.Content(Sets)</visible>
+					</control>
+					<control type="group">
+						<visible>Skin.HasSetting(AutoPlotVideo)</visible>
+						<top>190</top>
+						<control type="textbox">
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>797</left>
+						<top>487</top>
+						<width>685</width>
+						<height>160</height>
+						<font>font12</font>
+						<align>justify</align>
+						<textcolor>black</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label>$INFO[Window(Home).Property(SkinHelper.ListItem.Plot)]</label>
+						<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Plot))</visible>
+						<autoscroll time="2000" delay="6000" repeat="10000">true</autoscroll>
+					</control>
+					<control type="textbox">
+						<left>795</left>
+						<top>485</top>
+						<width>685</width>
+						<height>160</height>
+						<font>font12</font>
+						<align>justify</align>
+						<textcolor>white</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label>$INFO[Window(Home).Property(SkinHelper.ListItem.Plot)]</label>
+						<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Plot))</visible>
+						<autoscroll time="2000" delay="6000" repeat="10000">true</autoscroll>
+					</control>
+					<control type="textbox"><!--Fallback-->
+						<left>797</left>
+						<top>487</top>
+						<width>685</width>
+						<height>160</height>
+						<font>font12</font>
+						<align>justify</align>
+						<textcolor>black</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label>$INFO[ListItem.Plot]</label>
+						<visible>String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Plot))</visible>
+						<autoscroll time="2000" delay="6000" repeat="10000">true</autoscroll>
+					</control>
+					<control type="textbox"><!--Fallback-->
+						<left>795</left>
+						<top>485</top>
+						<width>685</width>
+						<height>160</height>
+						<font>font12</font>
+						<align>justify</align>
+						<textcolor>white</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label>$INFO[ListItem.Plot]</label>
+						<visible>String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Plot))</visible>
+						<autoscroll time="2000" delay="6000" repeat="10000">true</autoscroll>
+					</control>
+					<control type="label">
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>797</left>
+						<top>752</top>
+						<width>645</width>
+						<height>35</height>
+						<font>button2</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<textcolor>black</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label>$INFO[Window(Home).Property(SkinHelper.ListItem.Totalmovies),, Filme im Set] - $INFO[Window(Home).Property(SkinHelper.ListItem.Count),, in der lokalen Bibliothek]</label>
+						<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Totalmovies))</visible>
+					</control>
+					<control type="label">
+						<left>795</left>
+						<top>750</top>
+						<width>645</width>
+						<height>35</height>
+						<font>button2</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<textcolor>$INFO[Skin.String(color.500)]</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label>$INFO[Window(Home).Property(SkinHelper.ListItem.Totalmovies),, [COLORwhite]Filme im Set[/COLOR]] [COLORwhite]-[/COLOR] $INFO[Window(Home).Property(SkinHelper.ListItem.Count),, [COLORwhite]in der lokalen Bibliothek[/COLOR]]</label>
+						<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Totalmovies))</visible>
+					</control>
+					<control type="label">
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>797</left>
+						<top>752</top>
+						<width>645</width>
+						<height>35</height>
+						<font>button2</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<textcolor>black</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label>$INFO[Window(Home).Property(TMDbHelper.ListItem.Set.NumItems),, Filme im Set]</label>
+						<visible>String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Totalmovies))</visible>
+					</control>
+					<control type="label">
+						<left>795</left>
+						<top>750</top>
+						<width>645</width>
+						<height>35</height>
+						<font>button2</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<textcolor>$INFO[Skin.String(color.500)]</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label>$INFO[Window(Home).Property(TMDbHelper.ListItem.Set.NumItems),, [COLORwhite]Filme im Set[/COLOR]]</label>
+						<visible>String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Totalmovies))</visible>
+					</control>
+				</control>
+				</control>
+				<control type="group">
+					<visible>!Container.Content(Sets)</visible>
+					<visible>!String.IsEmpty(ListItem.Genre)</visible>
+					<top>-160</top>
+					<control type="image">
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>797</left>
+						<top>800</top>
+						<width>32</width>
+						<height>32</height>
+						<aspectratio align="center" aligny="bottom">keep</aspectratio>
+						<texture colordiffuse="black">flags/rating/tmdb.png</texture>
+					</control>
+					<control type="image">
+						<left>795</left>
+						<top>798</top>
+						<width>32</width>
+						<height>32</height>
+						<aspectratio align="center" aligny="bottom">keep</aspectratio>
+						<texture>flags/rating/tmdb.png</texture>
+					</control>
+					<control type="label">
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>837</left>
+						<top>800</top>
+						<width>650</width>
+						<height>35</height>
+						<font>button2</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<textcolor>black</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label fallback=".....">$INFO[Window(Home).Property(TMDbHelper.ListItem.TmDb_Rating)]</label>
+						<visible>!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.TMDb_Rating)))</visible>
+					</control>
+					<control type="label">
+						<left>835</left>
+						<top>798</top>
+						<width>650</width>
+						<height>35</height>
+						<font>button2</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<textcolor>$INFO[Skin.String(color.500)]</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label fallback="[COLORgrey].....[/COLOR]">$INFO[Window(Home).Property(TMDbHelper.ListItem.TMDb_Rating)]</label>
+						<visible>!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.TMDb_Rating)))</visible>
+					</control>
+					<control type="image">
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>907</left>
+						<top>802</top>
+						<width>52</width>
+						<height>32</height>
+						<aspectratio align="center" aligny="bottom">keep</aspectratio>
+						<texture colordiffuse="black">flags/rating/imdb.png</texture>
+					</control>
+					<control type="image">
+						<left>905</left>
+						<top>800</top>
+						<width>52</width>
+						<height>32</height>
+						<aspectratio align="center" aligny="bottom">keep</aspectratio>
+						<texture>flags/rating/imdb.png</texture>
+					</control>
+					<control type="label">
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>967</left>
+						<top>800</top>
+						<width>650</width>
+						<height>35</height>
+						<font>button2</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<textcolor>black</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label fallback=".....">$INFO[Window(Home).Property(TMDbHelper.ListItem.IMDb_Rating)]</label>
+						<visible>!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.IMDb_Rating)))</visible>
+					</control>
+					<control type="label">
+						<left>965</left>
+						<top>798</top>
+						<width>650</width>
+						<height>35</height>
+						<font>button2</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<textcolor>$INFO[Skin.String(color.500)]</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label fallback="[COLORgrey].....[/COLOR]">$INFO[Window(Home).Property(TMDbHelper.ListItem.IMDb_Rating)]</label>
+						<visible>!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.IMDb_Rating)))</visible>
+					</control>
+					<control type="image">
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>1037</left>
+						<top>802</top>
+						<width>32</width>
+						<height>32</height>
+						<aspectratio align="center" aligny="bottom">keep</aspectratio>
+						<texture colordiffuse="black">flags/rating/trakt.png</texture>
+					</control>
+					<control type="image">
+						<left>1035</left>
+						<top>800</top>
+						<width>32</width>
+						<height>32</height>
+						<aspectratio align="center" aligny="bottom">keep</aspectratio>
+						<texture>flags/rating/trakt.png</texture>
+					</control>
+					<control type="label">
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>1077</left>
+						<top>800</top>
+						<width>650</width>
+						<height>35</height>
+						<font>button2</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<textcolor>black</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label fallback=".....">$INFO[Window(Home).Property(TMDbHelper.ListItem.Trakt_Rating)]</label>
+						<visible>!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Trakt_Rating)))</visible>
+					</control>
+					<control type="label">
+						<left>1075</left>
+						<top>798</top>
+						<width>650</width>
+						<height>35</height>
+						<font>button2</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<textcolor>$INFO[Skin.String(color.500)]</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label fallback="[COLORgrey].....[/COLOR]">$INFO[Window(Home).Property(TMDbHelper.ListItem.Trakt_Rating)]</label>
+						<visible>!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Trakt_Rating)))</visible>
+					</control>
+					<control type="image">
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>1147</left>
+						<top>802</top>
+						<width>32</width>
+						<height>32</height>
+						<aspectratio align="center" aligny="bottom">keep</aspectratio>
+						<texture colordiffuse="black">flags/rating/metacritic.png</texture>
+					</control>
+					<control type="image">
+						<left>1145</left>
+						<top>800</top>
+						<width>32</width>
+						<height>32</height>
+						<aspectratio align="center" aligny="bottom">keep</aspectratio>
+						<texture>flags/rating/metacritic.png</texture>
+					</control>
+					<control type="label">
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>1187</left>
+						<top>800</top>
+						<width>650</width>
+						<height>35</height>
+						<font>button2</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<textcolor>black</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label fallback=".....">$INFO[Window(Home).Property(TMDbHelper.ListItem.Metacritic_Rating,,%]</label>
+						<visible>!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Metacritic_Rating)))</visible>
+					</control>
+					<control type="label">
+						<left>1185</left>
+						<top>798</top>
+						<width>650</width>
+						<height>35</height>
+						<font>button2</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<textcolor>$INFO[Skin.String(color.500)]</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label fallback="[COLORgrey].....[/COLOR]">$INFO[Window(Home).Property(TMDbHelper.ListItem.Metacritic_Rating,,%]</label>
+						<visible>!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Metacritic_Rating)))</visible>
+					</control>
+					<control type="image">
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>1267</left>
+						<top>802</top>
+						<width>32</width>
+						<height>32</height>
+						<aspectratio align="center" aligny="bottom">keep</aspectratio>
+						<texture colordiffuse="black">flags/rating/certified.png</texture>
+					</control>
+					<control type="image">
+						<left>1265</left>
+						<top>800</top>
+						<width>32</width>
+						<height>32</height>
+						<aspectratio align="center" aligny="bottom">keep</aspectratio>
+						<texture>flags/rating/certified.png</texture>
+					</control>
+					<control type="label">
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>1307</left>
+						<top>800</top>
+						<width>650</width>
+						<height>35</height>
+						<font>button2</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<textcolor>black</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label fallback=".....">$INFO[Window(Home).Property(TMDbHelper.ListItem.RottenTomatoes_Rating,,%]</label>
+						<visible>!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.RottenTomatoes_Rating)))</visible>
+					</control>
+					<control type="label">
+						<left>1305</left>
+						<top>798</top>
+						<width>650</width>
+						<height>35</height>
+						<font>button2</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<textcolor>$INFO[Skin.String(color.500)]</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label fallback="[COLORgrey].....[/COLOR]">$INFO[Window(Home).Property(TMDbHelper.ListItem.RottenTomatoes_Rating,,%]</label>
+						<visible>!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.RottenTomatoes_Rating)))</visible>
+					</control>
+					<control type="image">
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>1387</left>
+						<top>802</top>
+						<width>32</width>
+						<height>32</height>
+						<aspectratio align="center" aligny="bottom">keep</aspectratio>
+						<texture colordiffuse="black">flags/rating/tvdb.png</texture>
+						<visible>Container.Content(Seasons) | Container.Content(TVShows) | Container.Content(Episodes)</visible>
+					</control>
+					<control type="image">
+						<left>1385</left>
+						<top>800</top>
+						<width>32</width>
+						<height>32</height>
+						<aspectratio align="center" aligny="bottom">keep</aspectratio>
+						<texture>flags/rating/tvdb.png</texture>
+						<visible>Container.Content(Seasons) | Container.Content(TVShows) | Container.Content(Episodes)</visible>
+					</control>
+					<control type="label">
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>1427</left>
+						<top>800</top>
+						<width>650</width>
+						<height>35</height>
+						<font>button2</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<textcolor>black</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label fallback=".....">$INFO[Window(Home).Property(SkinHelper.ListItem.Rating.TVDB)]</label>
+						<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Rating.TVDB)))</visible>
+						<visible>Container.Content(Seasons) | Container.Content(TVShows) | Container.Content(Episodes)</visible>
+					</control>
+					<control type="label">
+						<left>1425</left>
+						<top>798</top>
+						<width>650</width>
+						<height>35</height>
+						<font>button2</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<textcolor>$INFO[Skin.String(color.500)]</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label fallback="[COLORgrey].....[/COLOR]">$INFO[Window(Home).Property(SkinHelper.ListItem.Rating.TVDB)]</label>
+						<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Rating.TVDB)))</visible>
+						<visible>Container.Content(Seasons) | Container.Content(TVShows) | Container.Content(Episodes)</visible>
+					</control>
+					<control type="image">
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>796</left>
+						<top>846</top>
+						<width>570</width>
+						<height>1</height>
+						<texture colordiffuse="black">backgrounds/white.png</texture>
+						<visible>Container.Content(Movies)</visible>
+					</control>
+					<control type="image">
+						<left>795</left>
+						<top>845</top>
+						<width>570</width>
+						<height>1</height>
+						<texture colordiffuse="$INFO[Skin.String(color.500)]">backgrounds/white.png</texture>
+						<visible>Container.Content(Movies)</visible>
+					</control>
+					<control type="image">
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>796</left>
+						<top>846</top>
+						<width>685</width>
+						<height>1</height>
+						<texture colordiffuse="black">backgrounds/white.png</texture>
+						<visible>Container.Content(Seasons) | Container.Content(TVShows) | Container.Content(Episodes)</visible>
+					</control>
+					<control type="image">
+						<left>795</left>
+						<top>845</top>
+						<width>685</width>
+						<height>1</height>
+						<texture colordiffuse="$INFO[Skin.String(color.500)]">backgrounds/white.png</texture>
+						<visible>Container.Content(Seasons) | Container.Content(TVShows) | Container.Content(Episodes)</visible>
+					</control>
+				</control>
+				<control type="group">
+					<visible>!Container.Content(Sets)</visible>
+					<visible>Skin.HasSetting(AutoPlotVideo)</visible>
+					<visible>!String.IsEmpty(ListItem.Genre)</visible>
+					<top>190</top>
+					<control type="label">
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>797</left>
+						<top>507</top>
+						<width>685</width>
+						<height>35</height>
+						<font>font12</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<textcolor>black</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label>$INFO[Window(Home).Property(TMDbHelper.ListItem.Tagline)]</label>
+						<visible>!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Tagline))</visible>
+						<scroll>true</scroll>
+					</control>
+					<control type="label">
+						<left>795</left>
+						<top>505</top>
+						<width>685</width>
+						<height>35</height>
+						<font>font12</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<textcolor>$INFO[Skin.String(color.500)]</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label>$INFO[Window(Home).Property(TMDbHelper.ListItem.Tagline)]</label>
+						<visible>!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Tagline))</visible>
+						<scroll>true</scroll>
+					</control>
+					<control type="textbox">
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>797</left>
+						<top>542</top>
+						<width>685</width>
+						<height>130</height>
+						<font>font12</font>
+						<align>justify</align>
+						<textcolor>black</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label>$INFO[Window(Home).Property(TMDbHelper.ListItem.Plot]</label>
+						<visible>!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Plot))</visible>
+						<autoscroll time="2000" delay="6000" repeat="10000">true</autoscroll>
+					</control>
+					<control type="textbox">
+						<left>795</left>
+						<top>540</top>
+						<width>685</width>
+						<height>130</height>
+						<font>font12</font>
+						<align>justify</align>
+						<textcolor>white</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label>$INFO[Window(Home).Property(TMDbHelper.ListItem.Plot]</label>
+						<visible>!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Plot))</visible>
+						<autoscroll time="2000" delay="6000" repeat="10000">true</autoscroll>
+					</control>
+					<control type="label"><!--Fallback-->
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>797</left>
+						<top>507</top>
+						<width>685</width>
+						<height>35</height>
+						<font>font12</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<textcolor>black</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label>$INFO[ListItem.Tagline]</label>
+						<visible>String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Tagline))</visible>
+						<scroll>true</scroll>
+					</control>
+					<control type="label"><!--Fallback-->
+						<left>795</left>
+						<top>505</top>
+						<width>685</width>
+						<height>35</height>
+						<font>font12</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<textcolor>$INFO[Skin.String(color.500)]</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label>$INFO[ListItem.Tagline]</label>
+						<visible>String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Tagline))</visible>
+						<scroll>true</scroll>
+					</control>
+					<control type="textbox"><!--Fallback-->
+						<left>797</left>
+						<top>542</top>
+						<width>685</width>
+						<height>130</height>
+						<font>font12</font>
+						<align>justify</align>
+						<textcolor>black</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label>$INFO[ListItem.Plot]</label>
+						<visible>String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Plot))</visible>
+						<autoscroll time="2000" delay="6000" repeat="10000">true</autoscroll>
+					</control>
+					<control type="textbox"><!--Fallback-->
+						<left>795</left>
+						<top>540</top>
+						<width>685</width>
+						<height>130</height>
+						<font>font12</font>
+						<align>justify</align>
+						<textcolor>white</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label>$INFO[ListItem.Plot]</label>
+						<visible>String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Plot))</visible>
+						<autoscroll time="2000" delay="6000" repeat="10000">true</autoscroll>
+					</control>
+				</control>
+				<control type="group">
+					<visible>!Skin.HasSetting(AutoPlotVideo)</visible>
+					<visible>!String.IsEmpty(ListItem.Genre)</visible>
+					<top>160</top>
+					<control type="label">
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>797</left>
+						<top>507</top>
+						<width>685</width>
+						<height>35</height>
+						<font>font12</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<textcolor>black</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label>$INFO[Window(Home).Property(TMDbHelper.ListItem.Tagline)]</label>
+						<visible>!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Tagline))</visible>
+						<scroll>true</scroll>
+					</control>
+					<control type="label">
+						<left>795</left>
+						<top>505</top>
+						<width>685</width>
+						<height>35</height>
+						<font>font12</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<textcolor>$INFO[Skin.String(color.500)]</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label>$INFO[Window(Home).Property(TMDbHelper.ListItem.Tagline)]</label>
+						<visible>!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Tagline))</visible>
+						<scroll>true</scroll>
+					</control>
+					<control type="textbox">
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>797</left>
+						<top>542</top>
+						<width>685</width>
+						<height>130</height>
+						<font>font12</font>
+						<align>justify</align>
+						<textcolor>black</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label>$INFO[Window(Home).Property(TMDbHelper.ListItem.Plot]</label>
+						<visible>!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Plot))</visible>
+					</control>
+					<control type="textbox">
+						<left>795</left>
+						<top>540</top>
+						<width>685</width>
+						<height>130</height>
+						<font>font12</font>
+						<align>justify</align>
+						<textcolor>white</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label>$INFO[Window(Home).Property(TMDbHelper.ListItem.Plot]</label>
+						<visible>!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Plot))</visible>
+					</control>
+					<control type="label"><!--Fallback-->
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>797</left>
+						<top>507</top>
+						<width>685</width>
+						<height>35</height>
+						<font>font12</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<textcolor>black</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label>$INFO[ListItem.Tagline]</label>
+						<visible>String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Tagline))</visible>
+						<scroll>true</scroll>
+					</control>
+					<control type="label"><!--Fallback-->
+						<left>795</left>
+						<top>505</top>
+						<width>685</width>
+						<height>35</height>
+						<font>font12</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<textcolor>$INFO[Skin.String(color.500)]</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label>$INFO[ListItem.Tagline]</label>
+						<visible>String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Tagline))</visible>
+						<scroll>true</scroll>
+					</control>
+					<control type="textbox"><!--Fallback-->
+						<left>797</left>
+						<top>542</top>
+						<width>685</width>
+						<height>130</height>
+						<font>font12</font>
+						<align>justify</align>
+						<textcolor>black</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label>$INFO[ListItem.Plot]</label>
+						<visible>String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Plot))</visible>
+					</control>
+					<control type="textbox"><!--Fallback-->
+						<left>795</left>
+						<top>540</top>
+						<width>685</width>
+						<height>130</height>
+						<font>font12</font>
+						<align>justify</align>
+						<textcolor>$INFO[Skin.String(color.500)]</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label>$INFO[ListItem.Plot]</label>
+						<visible>String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Plot))</visible>
+					</control>
+				</control>
+				<control type="label">
+					<visible>!Skin.HasSetting(Shadow)</visible>
+					<left>797</left>
+					<top>942</top>
+					<width>1000</width>
+					<height>35</height>
+					<font>button2</font>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textcolor>black</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<label>$INFO[ListItem.Property(TotalSeasons),Staffeln: ] $INFO[ListItem.Property(TotalEpisodes),Episoden: ] $INFO[ListItem.Property(WatchedEpisodes),Gesehen: ] $INFO[ListItem.Property(UnWatchedEpisodes),Ungesehen: ] </label>
+					<visible>!String.IsEmpty(ListItem.Property(TotalEpisodes))</visible>
+				</control>
+				<control type="label">
+					<left>795</left>
+					<top>940</top>
+					<width>1000</width>
+					<height>35</height>
+					<font>button2</font>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textcolor>$INFO[Skin.String(color.500)]</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<label>$INFO[ListItem.Property(TotalSeasons),[COLORwhite]Staffeln:[/COLOR] ] $INFO[ListItem.Property(TotalEpisodes),[COLORwhite]Episoden:[/COLOR] ] [COLORlime]$INFO[ListItem.Property(WatchedEpisodes),[COLORwhite]Gesehen:[/COLOR] ][/COLOR] [COLORred]$INFO[ListItem.Property(UnWatchedEpisodes),[COLORwhite]Ungesehen:[/COLOR] ][/COLOR] </label>
+					<visible>!String.IsEmpty(ListItem.Property(TotalEpisodes))</visible>
+				</control>
+			</control>
+			<control type="group">
+				<visible>Skin.HasSetting(Trailerbutton)</visible>
+				<visible>Container.Content(Movies) | Container.Content(Sets) | Container.Content(TVShows) | Container.Content(Seasons) | Container.Content(Episodes) | Container.Content(Albums) | Container.Content(Songs) | Container.Content(Artists)</visible>
+				<visible>!String.IsEmpty(ListItem.Genre)</visible>
+				<control type="button" id="996">
+					<visible>!String.IsEmpty(ListItem.Plot)</visible>
+					<visible>!Container.Content(Albums) | !Container.Content(Songs) | !Container.Content(Artists)</visible>
+					<left>795</left>
+					<top>865</top>
+					<width>250</width>
+					<height>60</height>
+					<texturefocus colordiffuse="$INFO[Skin.String(color.500)]">backgrounds/white.png</texturefocus>
+					<texturenofocus colordiffuse="button.nf">backgrounds/white.png</texturenofocus>
+					<font>label</font>
+					<textcolor>white</textcolor>
+					<focusedcolor>white</focusedcolor>
+					<shadowcolor>black</shadowcolor>
+					<align>center</align>
+					<label>Info</label>
+					<onclick>SetFocus(50)</onclick>
+					<onclick>Action(Info)</onclick>
+					<onup>50</onup>
+					<ondown>50</ondown>
+					<onleft>50</onleft>
+					<onright>997</onright>
+				</control>
+				<control type="button" id="997">
+					<visible>!String.IsEmpty(ListItem.Trailer)</visible>
+					<left>1055</left>
+					<top>865</top>
+					<width>250</width>
+					<height>60</height>
+					<texturefocus colordiffuse="$INFO[Skin.String(color.500)]">backgrounds/white.png</texturefocus>
+					<texturenofocus colordiffuse="button.nf">backgrounds/white.png</texturenofocus>
+					<font>label</font>
+					<textcolor>white</textcolor>
+					<focusedcolor>white</focusedcolor>
+					<shadowcolor>black</shadowcolor>
+					<align>center</align>
+					<label>20410</label>
+					<onclick>PlayMedia($ESCINFO[ListItem.Trailer],noresume)</onclick>
+					<onup>50</onup>
+					<ondown>50</ondown>
+					<onleft>996</onleft>
+					<onright>50</onright>
+				</control>
+				<control type="button" id="996">
+					<visible>Container.Content(Albums) | Container.Content(Songs) | Container.Content(Artists)</visible>
+					<left>795</left>
+					<top>865</top>
+					<width>250</width>
+					<height>60</height>
+					<texturefocus colordiffuse="$INFO[Skin.String(color.500)]">backgrounds/white.png</texturefocus>
+					<texturenofocus colordiffuse="button.nf">backgrounds/white.png</texturenofocus>
+					<font>label</font>
+					<textcolor>white</textcolor>
+					<focusedcolor>white</focusedcolor>
+					<shadowcolor>black</shadowcolor>
+					<align>center</align>
+					<label>Info</label>
+					<onclick>SetFocus(50)</onclick>
+					<onclick>Action(Info)</onclick>
+					<onup>50</onup>
+					<ondown>50</ondown>
+					<onleft>50</onleft>
+					<onright>997</onright>
+				</control>
+			</control>
+			<control type="group">
+				<visible>Skin.HasSetting(HideInfoMusic)</visible>
+				<visible>Container.Content(Albums)</visible>
+				<visible>!String.IsEmpty(ListItem.Year)</visible>
+				<control type="group">
+					<visible>Skin.HasSetting(HideLogoMusic)</visible>
+					<control type="image">
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>773</left>
+						<top>33</top>
+						<width>600</width>
+						<height>232</height>
+						<aspectratio>keep</aspectratio>
+						<texture colordiffuse="black">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo)]</texture>
+						<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo))</visible>
+					</control>
+					<control type="image">
+						<visible>Skin.HasSetting(HideLogoVideo)</visible>
+						<left>770</left>
+						<top>30</top>
+						<width>600</width>
+						<height>232</height>
+						<aspectratio>keep</aspectratio>
+						<texture>$INFO[Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo)]</texture>
+						<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo))</visible>
+					</control>
+					<control type="image"><!--Fallback-->
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>773</left>
+						<top>33</top>
+						<width>600</width>
+						<height>232</height>
+						<aspectratio>keep</aspectratio>
+						<texture colordiffuse="black">$INFO[ListItem.Art(clearlogo)]</texture>
+						<visible>String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo))</visible>
+					</control>
+					<control type="image"><!--Fallback-->
+						<left>770</left>
+						<top>30</top>
+						<width>600</width>
+						<height>232</height>
+						<aspectratio>keep</aspectratio>
+						<texture>$INFO[ListItem.Art(clearlogo)]</texture>
+						<visible>String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo))</visible>
+					</control>
+				</control>
+				<control type="image">
+					<visible>!Skin.HasSetting(Shadow)</visible>
+					<left>777</left>
+					<top>482</top>
+					<width>64</width>
+					<height>64</height>
+					<aspectratio>keep</aspectratio>
+					<texture colordiffuse="black">icons/calendar.png</texture>
+				</control>
+				<control type="image">
+					<left>775</left>
+					<top>480</top>
+					<width>64</width>
+					<height>64</height>
+					<aspectratio>keep</aspectratio>
+					<texture>icons/calendar.png</texture>
+				</control>
+				<control type="label">
+					<visible>!Skin.HasSetting(Shadow)</visible>
+					<left>837</left>
+					<top>497</top>
+					<width>645</width>
+					<height>35</height>
+					<font>button2</font>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textcolor>black</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<label fallback=".....">$INFO[Window(Home).Property(SkinHelper.ListItem.Year)]</label>
+					<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Year))</visible>
+				</control>
+				<control type="label">
+					<left>835</left>
+					<top>495</top>
+					<width>645</width>
+					<height>35</height>
+					<font>button2</font>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textcolor>$INFO[Skin.String(color.500)]</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<label fallback="[COLORgrey].....[/COLOR]">$INFO[Window(Home).Property(SkinHelper.ListItem.Year)]</label>
+					<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Year))</visible>
+				</control>
+				<control type="label"><!--Fallback-->
+					<left>837</left>
+					<top>497</top>
+					<width>645</width>
+					<height>35</height>
+					<font>button2</font>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textcolor>black</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<label fallback=".....">$INFO[ListItem.Year]</label>
+					<visible>String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Year))</visible>
+				</control>
+				<control type="label"><!--Fallback-->
+					<left>835</left>
+					<top>495</top>
+					<width>645</width>
+					<height>35</height>
+					<font>button2</font>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textcolor>$INFO[Skin.String(color.500)]</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<label fallback="[COLORgrey].....[/COLOR]">$INFO[ListItem.Year]</label>
+					<visible>String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Year))</visible>
+				</control>
+				<control type="image">
+					<visible>!Skin.HasSetting(Shadow)</visible>
+					<left>777</left>
+					<top>527</top>
+					<width>64</width>
+					<height>64</height>
+					<aspectratio>keep</aspectratio>
+					<texture colordiffuse="black">icons/clock.png</texture>
+				</control>
+				<control type="image">
+					<left>775</left>
+					<top>525</top>
+					<width>64</width>
+					<height>64</height>
+					<aspectratio>keep</aspectratio>
+					<texture>icons/clock.png</texture>
+				</control>
+				<control type="label">
+					<visible>!Skin.HasSetting(Shadow)</visible>
+					<left>837</left>
+					<top>542</top>
+					<width>645</width>
+					<height>35</height>
+					<font>button2</font>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textcolor>black</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<label fallback=".....">$INFO[Window(Home).Property(SkinHelper.ListItem.Duration)]</label>
+					<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Duration))</visible>
+				</control>
+				<control type="label">
+					<left>835</left>
+					<top>540</top>
+					<width>645</width>
+					<height>35</height>
+					<font>button2</font>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textcolor>$INFO[Skin.String(color.500)]</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<label fallback="[COLORgrey].....[/COLOR]">$INFO[Window(Home).Property(SkinHelper.ListItem.Duration)]</label>
+					<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Duration))</visible>
+				</control>
+				<control type="label"><!--Fallback-->
+					<left>837</left>
+					<top>542</top>
+					<width>645</width>
+					<height>35</height>
+					<font>button2</font>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textcolor>black</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<label fallback=".....">$INFO[ListItem.Duration]</label>
+					<visible>String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Duration))</visible>
+				</control>
+				<control type="label"><!--Fallback-->
+					<left>835</left>
+					<top>540</top>
+					<width>645</width>
+					<height>35</height>
+					<font>button2</font>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textcolor>$INFO[Skin.String(color.500)]</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<label fallback="[COLORgrey].....[/COLOR]">$INFO[ListItem.Duration]</label>
+					<visible>String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Duration))</visible>
+				</control>
+				<control type="image">
+					<visible>!Skin.HasSetting(Shadow)</visible>
+					<left>772</left>
+					<top>567</top>
+					<width>64</width>
+					<height>64</height>
+					<aspectratio>keep</aspectratio>
+					<texture colordiffuse="black">icons/genre.png</texture>
+				</control>
+				<control type="image">
+					<left>775</left>
+					<top>565</top>
+					<width>64</width>
+					<height>64</height>
+					<aspectratio>keep</aspectratio>
+					<texture>icons/genre.png</texture>
+				</control>
+				<control type="label">
+					<visible>!Skin.HasSetting(Shadow)</visible>
+					<left>837</left>
+					<top>582</top>
+					<width>605</width>
+					<height>35</height>
+					<font>button2</font>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textcolor>black</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<label fallback=".....">$INFO[Window(Home).Property(SkinHelper.ListItem.Genre)]</label>
+					<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Genre))</visible>
+					<scroll>true</scroll>
+				</control>
+				<control type="label">
+					<left>835</left>
+					<top>580</top>
+					<width>605</width>
+					<height>35</height>
+					<font>button2</font>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textcolor>$INFO[Skin.String(color.500)]</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<label fallback="[COLORgrey].....[/COLOR]">$INFO[Window(Home).Property(SkinHelper.ListItem.Genre)]</label>
+					<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Genre))</visible>
+					<scroll>true</scroll>
+				</control>
+				<control type="label"><!--Fallback-->
+					<visible>!Skin.HasSetting(Shadow)</visible>
+					<left>837</left>
+					<top>582</top>
+					<width>605</width>
+					<height>35</height>
+					<font>button2</font>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textcolor>black</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<label fallback=".....">$INFO[ListItem.Genre]</label>
+					<visible>String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Genre))</visible>
+					<scroll>true</scroll>
+				</control>
+				<control type="label"><!--Fallback-->
+					<left>835</left>
+					<top>580</top>
+					<width>605</width>
+					<height>35</height>
+					<font>button2</font>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textcolor>$INFO[Skin.String(color.500)]</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<label fallback="[COLORgrey].....[/COLOR]">$INFO[ListItem.Genre]</label>
+					<visible>String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Genre))</visible>
+					<scroll>true</scroll>
+				</control>
+				<control type="image">
+					<visible>!Skin.HasSetting(Shadow)</visible>
+					<left>777</left>
+					<top>612</top>
+					<width>64</width>
+					<height>64</height>
+					<aspectratio>keep</aspectratio>
+					<texture colordiffuse="black">icons/star.png</texture>
+				</control>
+				<control type="image">
+					<left>775</left>
+					<top>610</top>
+					<width>64</width>
+					<height>64</height>
+					<aspectratio>keep</aspectratio>
+					<texture>icons/star.png</texture>
+				</control>
+				<control type="label">
+					<visible>!Skin.HasSetting(Shadow)</visible>
+					<left>837</left>
+					<top>627</top>
+					<width>610</width>
+					<height>35</height>
+					<font>button2</font>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textcolor>black</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<label fallback=".....">$INFO[ListItem.RatingAndVotes]</label>
+					<scroll>true</scroll>
+				</control>
+				<control type="label">
+					<left>835</left>
+					<top>625</top>
+					<width>610</width>
+					<height>35</height>
+					<font>button2</font>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textcolor>$INFO[Skin.String(color.500)]</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<label fallback="[COLORgrey].....[/COLOR]">$INFO[ListItem.RatingAndVotes]</label>
+					<scroll>true</scroll>
+				</control>
+				<control type="image">
+					<visible>!Skin.HasSetting(Shadow)</visible>
+					<left>796</left>
+					<top>666</top>
+					<width>650</width>
+					<height>1</height>
+					<texture colordiffuse="black">backgrounds/white.png</texture>
+				</control>
+				<control type="image">
+					<left>795</left>
+					<top>665</top>
+					<width>650</width>
+					<height>1</height>
+					<texture colordiffuse="$INFO[Skin.String(color.500)]">backgrounds/white.png</texture>
+				</control>
+				<control type="group">
+					<visible>Skin.HasSetting(AutoPlotVideo)</visible>
+					<top>190</top>
+					<control type="textbox">
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>797</left>
+						<top>482</top>
+						<width>650</width>
+						<height>190</height>
+						<font>font12</font>
+						<align>justify</align>
+						<textcolor>black</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label>$INFO[Window(Home).Property(SkinHelper.ListItem.Plot]</label>
+						<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Plot))</visible>
+						<autoscroll time="2000" delay="6000" repeat="10000">true</autoscroll>
+					</control>
+					<control type="textbox">
+						<left>795</left>
+						<top>480</top>
+						<width>650</width>
+						<height>190</height>
+						<font>font12</font>
+						<align>justify</align>
+						<textcolor>white</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label>$INFO[Window(Home).Property(SkinHelper.ListItem.Plot]</label>
+						<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Plot))</visible>
+						<autoscroll time="2000" delay="6000" repeat="10000">true</autoscroll>
+					</control>
+					<control type="textbox"><!--Fallback-->
+						<left>797</left>
+						<top>482</top>
+						<width>650</width>
+						<height>190</height>
+						<font>font12</font>
+						<align>justify</align>
+						<textcolor>black</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label>$INFO[ListItem.Property(Album_Description)]</label>
+						<visible>String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Plot))</visible>
+						<autoscroll time="2000" delay="6000" repeat="10000">true</autoscroll>
+					</control>
+					<control type="textbox"><!--Fallback-->
+						<left>795</left>
+						<top>480</top>
+						<width>650</width>
+						<height>190</height>
+						<font>font12</font>
+						<align>justify</align>
+						<textcolor>white</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label>$INFO[ListItem.Property(Album_Description) ]</label>
+						<visible>String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Plot))</visible>
+						<autoscroll time="2000" delay="6000" repeat="10000">true</autoscroll>
+					</control>
+				</control>
+				<control type="group">
+					<visible>!Skin.HasSetting(AutoPlotVideo)</visible>
+					<top>190</top>
+					<control type="textbox">
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>797</left>
+						<top>482</top>
+						<width>650</width>
+						<height>190</height>
+						<font>font12</font>
+						<align>justify</align>
+						<textcolor>black</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label>$INFO[Window(Home).Property(SkinHelper.ListItem.Plot]</label>
+						<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Plot))</visible>
+					</control>
+					<control type="textbox">
+						<left>795</left>
+						<top>480</top>
+						<width>650</width>
+						<height>190</height>
+						<font>font12</font>
+						<align>justify</align>
+						<textcolor>white</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label>$INFO[Window(Home).Property(SkinHelper.ListItem.Plot]</label>
+						<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Plot))</visible>
+					</control>
+					<control type="textbox"><!--Fallback-->
+						<left>797</left>
+						<top>482</top>
+						<width>650</width>
+						<height>190</height>
+						<font>font12</font>
+						<align>justify</align>
+						<textcolor>black</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label>$INFO[ListItem.Property(Album_Description)]</label>
+						<visible>String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Plot))</visible>
+					</control>
+					<control type="textbox"><!--Fallback-->
+						<left>795</left>
+						<top>480</top>
+						<width>650</width>
+						<height>190</height>
+						<font>font12</font>
+						<align>justify</align>
+						<textcolor>white</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label>$INFO[ListItem.Property(Album_Description) ]</label>
+						<visible>String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Plot))</visible>
+					</control>
+				</control>
+			</control>
+			<control type="group">
+				<visible>Container.Content(Albums)</visible>
+				<control type="group">
+					<visible>Skin.HasSetting(HideDiscMusic)</visible>
+					<control type="image">
+						<top>680</top>
+						<left>385r</left>
+						<width>310</width>
+						<height>310</height>
+						<fadetime>1000</fadetime>
+						<texture>backgrounds/cdart.png</texture>
+						<aspectratio>keep</aspectratio>
+						<animation type="Conditional" condition="!Container(50).OnNext + !Container(50).OnPrevious" reversible="false">
+							<effect type="fade" start="0" end="100" time="50" delay="1000"/>
+						</animation>
+						<animation type="Conditional" condition="!Container(50).OnNext + !Container(50).OnPrevious" reversible="false">
+							<effect type="slide" start="0,0" end="0,-270" time="500" delay="1000" tween="cubic"/>
+						</animation>
+						<animation type="Visible" reversible="false">
+							<effect type="fade" start="0" end="100" time="1500" tween="cubic"/>
+						</animation>
+						<animation type="Hidden" reversible="false">
+							<effect type="fade" start="100" end="0" time="500" tween="cubic"/>
+						</animation>
+						<animation effect="rotate" end="-360" center="auto" time="12000" loop="true" reversible="false" condition="true">Conditional</animation>
+					</control>
+					<control type="image">
+						<top>680</top>
+						<left>385r</left>
+						<width>310</width>
+						<height>310</height>
+						<fadetime>1000</fadetime>
+						<texture>$INFO[Window(Home).Property(SkinHelper.ListItem.Art.DiscArt)]</texture>
+						<animation type="Conditional" condition="!Container(50).OnNext + !Container(50).OnPrevious" reversible="false">
+							<effect type="fade" start="0" end="100" time="50" delay="1000"/>
+						</animation>
+						<animation type="Conditional" condition="!Container(50).OnNext + !Container(50).OnPrevious" reversible="false">
+							<effect type="slide" start="0,0" end="0,-270" time="500" delay="1000" tween="cubic"/>
+						</animation>
+						<animation type="Visible" reversible="false">
+							<effect type="fade" start="0" end="100" time="1500" tween="cubic"/>
+						</animation>
+						<animation type="Hidden" reversible="false">
+							<effect type="fade" start="100" end="0" time="500" tween="cubic"/>
+						</animation>
+						<animation effect="rotate" end="-360" center="auto" time="12000" loop="true" reversible="false" condition="true">Conditional</animation>
+					</control>
+				</control>
+				<control type="image">
+					<visible>!Skin.HasSetting(Shadow)</visible>
+					<left>427r</left>
+					<top>438</top>
+					<width>400</width>
+					<height>500</height>
+					<aspectratio aligny="bottom">keep</aspectratio>
+					<texture colordiffuse="black">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.AlbumThumb]</texture>
+					<bordertexture></bordertexture>
+					<bordersize>10</bordersize>
+					<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.AlbumThumb))</visible>
+				</control>
+				<control type="image">
+					<left>430r</left>
+					<top>435</top>
+					<width>400</width>
+					<height>500</height>
+					<aspectratio aligny="bottom">keep</aspectratio>
+					<texture>$INFO[Window(Home).Property(SkinHelper.ListItem.Art.AlbumThumb]</texture>
+					<bordertexture></bordertexture>
+					<bordersize>10</bordersize>
+					<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.AlbumThumb))</visible>
+				</control>
+				<control type="image"><!--Fallback-->
+					<visible>!Skin.HasSetting(Shadow)</visible>
+					<left>427r</left>
+					<top>438</top>
+					<width>400</width>
+					<height>500</height>
+					<aspectratio aligny="bottom">keep</aspectratio>
+					<texture colordiffuse="black">$INFO[ListItem.Icon]</texture>
+					<bordertexture></bordertexture>
+					<bordersize>10</bordersize>
+					<visible>String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.AlbumThumb))</visible>
+				</control>
+				<control type="image"><!--Fallback-->
+					<left>430r</left>
+					<top>435</top>
+					<width>400</width>
+					<height>500</height>
+					<aspectratio aligny="bottom">keep</aspectratio>
+					<texture>$INFO[ListItem.Icon]</texture>
+					<bordertexture></bordertexture>
+					<bordersize>10</bordersize>
+					<visible>String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.AlbumThumb))</visible>
+				</control>
+				<control type="image">
+					<visible>Skin.HasSetting(HideShellMusic)</visible>
+					<visible>!String.IsEmpty(ListItem.Year)</visible>
+					<left>460r</left>
+					<top>500</top>
+					<width>430</width>
+					<height>430</height>
+					<aspectratio aligny="bottom">keep</aspectratio>
+					<texture background="true">shell/cd.png</texture>
+				</control>
+			</control>
+			<control type="image">
+				<visible>Skin.HasSetting(HideFlagMusic)</visible>
+				<visible>!Skin.HasSetting(Shadow)</visible>
+				<left>1352</left>
+				<top>472</top>
+				<width>100</width>
+				<height>100</height>
+				<aspectratio align="center" aligny="bottom">keep</aspectratio>
+				<texture colordiffuse="black">$INFO[Window(Home).Property(SkinHelper.ListItem.albumlabel),resource://resource.images.recordlabels.white/,.png]</texture>
+				<fadetime>300</fadetime>
+			</control>
+			<control type="image">
+				<visible>Skin.HasSetting(HideFlagMusic)</visible>
+				<left>1350</left>
+				<top>470</top>
+				<width>100</width>
+				<height>100</height>
+				<aspectratio align="center" aligny="bottom">keep</aspectratio>
+				<texture>$INFO[Window(Home).Property(SkinHelper.ListItem.albumlabel),resource://resource.images.recordlabels.white/,.png]</texture>
+				<fadetime>300</fadetime>
+			</control>
+			<control type="group">
+				<visible>Skin.HasSetting(HideInfoMusic)</visible>
+				<visible>Container.Content(Songs)</visible>
+				<visible>!String.IsEmpty(ListItem.Year)</visible>
+				<control type="group">
+					<visible>Skin.HasSetting(HideLogoMusic)</visible>
+					<control type="image">
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>773</left>
+						<top>33</top>
+						<width>600</width>
+						<height>232</height>
+						<aspectratio>keep</aspectratio>
+						<texture colordiffuse="black">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo)]</texture>
+						<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo))</visible>
+					</control>
+					<control type="image">
+						<visible>Skin.HasSetting(HideLogoVideo)</visible>
+						<left>770</left>
+						<top>30</top>
+						<width>600</width>
+						<height>232</height>
+						<aspectratio>keep</aspectratio>
+						<texture>$INFO[Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo)]</texture>
+						<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo))</visible>
+					</control>
+					<control type="image"><!--Fallback-->
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>773</left>
+						<top>33</top>
+						<width>600</width>
+						<height>232</height>
+						<aspectratio>keep</aspectratio>
+						<texture colordiffuse="black">$INFO[ListItem.Art(clearlogo)]</texture>
+						<visible>String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo))</visible>
+					</control>
+					<control type="image"><!--Fallback-->
+						<left>770</left>
+						<top>30</top>
+						<width>600</width>
+						<height>232</height>
+						<aspectratio>keep</aspectratio>
+						<texture>$INFO[ListItem.Art(clearlogo)]</texture>
+						<visible>String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo))</visible>
+					</control>
+				</control>
+				<control type="group">
+					<top>185</top>
+					<control type="image">
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>777</left>
+						<top>482</top>
+						<width>64</width>
+						<height>64</height>
+						<aspectratio>keep</aspectratio>
+						<texture colordiffuse="black">icons/calendar.png</texture>
+					</control>
+					<control type="image">
+						<left>775</left>
+						<top>480</top>
+						<width>64</width>
+						<height>64</height>
+						<aspectratio>keep</aspectratio>
+						<texture>icons/calendar.png</texture>
+					</control>
+					<control type="label">
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>837</left>
+						<top>497</top>
+						<width>645</width>
+						<height>35</height>
+						<font>button2</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<textcolor>black</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label fallback=".....">$INFO[Window(Home).Property(SkinHelper.ListItem.Year)]</label>
+						<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Year))</visible>
+					</control>
+					<control type="label">
+						<left>835</left>
+						<top>495</top>
+						<width>645</width>
+						<height>35</height>
+						<font>button2</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<textcolor>$INFO[Skin.String(color.500)]</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label fallback="[COLORgrey].....[/COLOR]">$INFO[Window(Home).Property(SkinHelper.ListItem.Year)]</label>
+						<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Year))</visible>
+					</control>
+					<control type="label"><!--Fallback-->
+						<left>837</left>
+						<top>497</top>
+						<width>645</width>
+						<height>35</height>
+						<font>button2</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<textcolor>black</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label fallback=".....">$INFO[ListItem.Year]</label>
+						<visible>String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Year))</visible>
+					</control>
+					<control type="label"><!--Fallback-->
+						<left>835</left>
+						<top>495</top>
+						<width>645</width>
+						<height>35</height>
+						<font>button2</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<textcolor>$INFO[Skin.String(color.500)]</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label fallback="[COLORgrey].....[/COLOR]">$INFO[ListItem.Year]</label>
+						<visible>String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Year))</visible>
+					</control>
+					<control type="image">
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>777</left>
+						<top>527</top>
+						<width>64</width>
+						<height>64</height>
+						<aspectratio>keep</aspectratio>
+						<texture colordiffuse="black">icons/clock.png</texture>
+					</control>
+					<control type="image">
+						<left>775</left>
+						<top>525</top>
+						<width>64</width>
+						<height>64</height>
+						<aspectratio>keep</aspectratio>
+						<texture>icons/clock.png</texture>
+					</control>
+					<control type="label"><!--Fallback-->
+						<left>837</left>
+						<top>542</top>
+						<width>645</width>
+						<height>35</height>
+						<font>button2</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<textcolor>black</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label fallback=".....">$INFO[ListItem.Duration]</label>
+					</control>
+					<control type="label"><!--Fallback-->
+						<left>835</left>
+						<top>540</top>
+						<width>645</width>
+						<height>35</height>
+						<font>button2</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<textcolor>$INFO[Skin.String(color.500)]</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label fallback="[COLORgrey].....[/COLOR]">$INFO[ListItem.Duration]</label>
+					</control>
+					<control type="image">
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>772</left>
+						<top>567</top>
+						<width>64</width>
+						<height>64</height>
+						<aspectratio>keep</aspectratio>
+						<texture colordiffuse="black">icons/cd.png</texture>
+					</control>
+					<control type="image">
+						<left>775</left>
+						<top>565</top>
+						<width>64</width>
+						<height>64</height>
+						<aspectratio>keep</aspectratio>
+						<texture>icons/cd.png</texture>
+					</control>
+					<control type="label">
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>837</left>
+						<top>582</top>
+						<width>645</width>
+						<height>35</height>
+						<font>button2</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<textcolor>black</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label fallback=".....">$INFO[ListItem.Album] $INFO[ListItem.Artist,- ]</label>
+						<scroll>true</scroll>
+					</control>
+					<control type="label">
+						<left>835</left>
+						<top>580</top>
+						<width>645</width>
+						<height>35</height>
+						<font>button2</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<textcolor>$INFO[Skin.String(color.500)]</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label fallback="[COLORgrey].....[/COLOR]">$INFO[ListItem.Album] $INFO[ListItem.Artist,[COLORwhite]-[/COLOR] ]</label>
+						<scroll>true</scroll>
+					</control>
+					<control type="image">
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>782</left>
+						<top>612</top>
+						<width>60</width>
+						<height>60</height>
+						<aspectratio>keep</aspectratio>
+						<texture colordiffuse="black">osd/audio.png</texture>
+					</control>
+					<control type="image">
+						<left>780</left>
+						<top>610</top>
+						<width>60</width>
+						<height>60</height>
+						<aspectratio>keep</aspectratio>
+						<texture>osd/audio.png</texture>
+					</control>
+					<control type="label">
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>837</left>
+						<top>627</top>
+						<width>625</width>
+						<height>35</height>
+						<font>button2</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<textcolor>black</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label fallback=".....">$INFO[ListItem.BPM,, BPM -] $INFO[ListItem.BitRate ,, Kbps -] $INFO[ListItem.MusicChannels,, Kanal]</label>
+						<scroll>true</scroll>
+					</control>
+					<control type="label">
+						<left>835</left>
+						<top>625</top>
+						<width>645</width>
+						<height>35</height>
+						<font>button2</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<textcolor>$INFO[Skin.String(color.500)]</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label fallback="[COLORgrey].....[/COLOR]">$INFO[ListItem.BPM,, BPM [COLORwhite]-[/COLOR]] $INFO[ListItem.BitRate ,, Kbps [COLORwhite]-[/COLOR]] $INFO[ListItem.MusicChannels,, Kanal]</label>
+						<scroll>true</scroll>
+					</control>
+				</control>
+			</control>
+			<control type="group">
+				<visible>Container.Content(Songs)</visible>
+				<control type="group">
+					<visible>Skin.HasSetting(HideDiscMusic)</visible>
+					<visible>!String.IsEmpty(ListItem.Year)</visible>
+					<control type="image">
+						<top>680</top>
+						<left>385r</left>
+						<width>310</width>
+						<height>310</height>
+						<fadetime>1000</fadetime>
+						<texture>backgrounds/cdart.png</texture>
+						<aspectratio>keep</aspectratio>
+						<animation type="Conditional" condition="!Container(50).OnNext + !Container(50).OnPrevious" reversible="false">
+							<effect type="fade" start="0" end="100" time="50" delay="1000"/>
+						</animation>
+						<animation type="Conditional" condition="!Container(50).OnNext + !Container(50).OnPrevious" reversible="false">
+							<effect type="slide" start="0,0" end="0,-270" time="500" delay="1000" tween="cubic"/>
+						</animation>
+						<animation type="Visible" reversible="false">
+							<effect type="fade" start="0" end="100" time="1500" tween="cubic"/>
+						</animation>
+						<animation type="Hidden" reversible="false">
+							<effect type="fade" start="100" end="0" time="500" tween="cubic"/>
+						</animation>
+						<animation effect="rotate" end="-360" center="auto" time="12000" loop="true" reversible="false" condition="true">Conditional</animation>
+					</control>
+					<control type="image">
+						<top>680</top>
+						<left>385r</left>
+						<width>310</width>
+						<height>310</height>
+						<fadetime>1000</fadetime>
+						<texture>$INFO[Window(Home).Property(SkinHelper.ListItem.Art.DiscArt)]</texture>
+						<animation type="Conditional" condition="!Container(50).OnNext + !Container(50).OnPrevious" reversible="false">
+							<effect type="fade" start="0" end="100" time="50" delay="1000"/>
+						</animation>
+						<animation type="Conditional" condition="!Container(50).OnNext + !Container(50).OnPrevious" reversible="false">
+							<effect type="slide" start="0,0" end="0,-270" time="500" delay="1000" tween="cubic"/>
+						</animation>
+						<animation type="Visible" reversible="false">
+							<effect type="fade" start="0" end="100" time="1500" tween="cubic"/>
+						</animation>
+						<animation type="Hidden" reversible="false">
+							<effect type="fade" start="100" end="0" time="500" tween="cubic"/>
+						</animation>
+						<animation effect="rotate" end="-360" center="auto" time="12000" loop="true" reversible="false" condition="true">Conditional</animation>
+					</control>
+				</control>
+				<control type="image">
+					<visible>!Skin.HasSetting(Shadow)</visible>
+					<left>427r</left>
+					<top>438</top>
+					<width>400</width>
+					<height>500</height>
+					<aspectratio aligny="bottom">keep</aspectratio>
+					<texture colordiffuse="black">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.AlbumThumb]</texture>
+					<bordertexture></bordertexture>
+					<bordersize>10</bordersize>
+					<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.AlbumThumb))</visible>
+				</control>
+				<control type="image">
+					<left>430r</left>
+					<top>435</top>
+					<width>400</width>
+					<height>500</height>
+					<aspectratio aligny="bottom">keep</aspectratio>
+					<texture>$INFO[Window(Home).Property(SkinHelper.ListItem.Art.AlbumThumb]</texture>
+					<bordertexture></bordertexture>
+					<bordersize>10</bordersize>
+					<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.AlbumThumb))</visible>
+				</control>
+				<control type="image"><!--Fallback-->
+					<visible>!Skin.HasSetting(Shadow)</visible>
+					<left>427r</left>
+					<top>438</top>
+					<width>400</width>
+					<height>500</height>
+					<aspectratio aligny="bottom">keep</aspectratio>
+					<texture colordiffuse="black">$INFO[ListItem.Icon]</texture>
+					<bordertexture></bordertexture>
+					<bordersize>10</bordersize>
+					<visible>String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.AlbumThumb))</visible>
+				</control>
+				<control type="image"><!--Fallback-->
+					<left>430r</left>
+					<top>435</top>
+					<width>400</width>
+					<height>500</height>
+					<aspectratio aligny="bottom">keep</aspectratio>
+					<texture >$INFO[ListItem.Icon]</texture>
+					<bordertexture></bordertexture>
+					<bordersize>10</bordersize>
+					<visible>String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.AlbumThumb))</visible>
+				</control>
+				<control type="image">
+					<visible>Skin.HasSetting(HideShellMusic)</visible>
+					<visible>!String.IsEmpty(ListItem.Year)</visible>
+					<left>460r</left>
+					<top>500</top>
+					<width>430</width>
+					<height>430</height>
+					<aspectratio aligny="bottom">keep</aspectratio>
+					<texture background="true">shell/cd.png</texture>
+				</control>
+			</control>
+			<control type="group">
+				<visible>Skin.HasSetting(HideInfoMusic)</visible>
+				<visible>Container.Content(Artists)</visible>
+				<visible>!String.IsEmpty(ListItem.Property(Artist_Born))</visible>
+				<control type="group">
+					<visible>Skin.HasSetting(HideLogoMusic)</visible>
+					<control type="image">
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>773</left>
+						<top>33</top>
+						<width>600</width>
+						<height>232</height>
+						<aspectratio>keep</aspectratio>
+						<texture colordiffuse="black">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo)]</texture>
+						<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo))</visible>
+					</control>
+					<control type="image">
+						<visible>Skin.HasSetting(HideLogoVideo)</visible>
+						<left>770</left>
+						<top>30</top>
+						<width>600</width>
+						<height>232</height>
+						<aspectratio>keep</aspectratio>
+						<texture>$INFO[Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo)]</texture>
+						<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo))</visible>
+					</control>
+					<control type="image"><!--Fallback-->
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>773</left>
+						<top>33</top>
+						<width>600</width>
+						<height>232</height>
+						<aspectratio>keep</aspectratio>
+						<texture colordiffuse="black">$INFO[ListItem.Art(clearlogo)]</texture>
+						<visible>String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo))</visible>
+					</control>
+					<control type="image"><!--Fallback-->
+						<left>770</left>
+						<top>30</top>
+						<width>600</width>
+						<height>232</height>
+						<aspectratio>keep</aspectratio>
+						<texture>$INFO[ListItem.Art(clearlogo)]</texture>
+						<visible>String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo))</visible>
+					</control>
+				</control>
+				<control type="image">
+					<visible>!Skin.HasSetting(Shadow)</visible>
+					<left>777</left>
+					<top>527</top>
+					<width>64</width>
+					<height>64</height>
+					<aspectratio>keep</aspectratio>
+					<texture colordiffuse="black">icons/calendar.png</texture>
+				</control>
+				<control type="image">
+					<left>775</left>
+					<top>525</top>
+					<width>64</width>
+					<height>64</height>
+					<aspectratio>keep</aspectratio>
+					<texture>icons/calendar.png</texture>
+				</control>
+				<control type="label">
+					<visible>!Skin.HasSetting(Shadow)</visible>
+					<left>837</left>
+					<top>542</top>
+					<width>645</width>
+					<height>35</height>
+					<font>button2</font>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textcolor>black</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<label fallback=".....">$INFO[Window(Home).Property(SkinHelper.ListItem.born)]</label>
+					<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.born))</visible>
+				</control>
+				<control type="label">
+					<left>835</left>
+					<top>540</top>
+					<width>645</width>
+					<height>35</height>
+					<font>button2</font>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textcolor>$INFO[Skin.String(color.500)]</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<label fallback="[COLORgrey].....[/COLOR]">$INFO[Window(Home).Property(SkinHelper.ListItem.born)]</label>
+					<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.born))</visible>
+				</control>
+				<control type="label"><!--Fallback-->
+					<left>837</left>
+					<top>542</top>
+					<width>645</width>
+					<height>35</height>
+					<font>button2</font>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textcolor>black</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<label fallback=".....">$INFO[ListItem.Property(Artist_Born)]</label>
+					<visible>String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.born))</visible>
+				</control>
+				<control type="label"><!--Fallback-->
+					<left>835</left>
+					<top>540</top>
+					<width>645</width>
+					<height>35</height>
+					<font>button2</font>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textcolor>$INFO[Skin.String(color.500)]</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<label fallback="[COLORgrey].....[/COLOR]">$INFO[ListItem.Property(Artist_Born)]</label>
+					<visible>String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.born))</visible>
+				</control>
+				<control type="group">
+					<visible>!String.IsEmpty(ListItem.Property(Artist_Died))</visible>
+					<control type="image">
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>1002</left>
+						<top>527</top>
+						<width>64</width>
+						<height>64</height>
+						<aspectratio>keep</aspectratio>
+						<texture colordiffuse="black">icons/rip.png</texture>
+					</control>
+					<control type="image">
+						<left>1000</left>
+						<top>525</top>
+						<width>64</width>
+						<height>64</height>
+						<aspectratio>keep</aspectratio>
+						<texture>icons/rip.png</texture>
+					</control>
+					<control type="label">
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>1062</left>
+						<top>542</top>
+						<width>645</width>
+						<height>35</height>
+						<font>button2</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<textcolor>black</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label fallback=".....">$INFO[Window(Home).Property(SkinHelper.ListItem.died)]</label>
+						<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.died))</visible>
+					</control>
+					<control type="label">
+						<left>1060</left>
+						<top>540</top>
+						<width>645</width>
+						<height>35</height>
+						<font>button2</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<textcolor>$INFO[Skin.String(color.500)]</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label fallback="[COLORgrey].....[/COLOR]">$INFO[Window(Home).Property(SkinHelper.ListItem.died)]</label>
+						<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.died))</visible>
+					</control>
+					<control type="label"><!--Fallback-->
+						<left>837</left>
+						<top>542</top>
+						<width>645</width>
+						<height>35</height>
+						<font>button2</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<textcolor>black</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label fallback=".....">$INFO[ListItem.Property(Artist_Died)]</label>
+						<visible>String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.died))</visible>
+					</control>
+					<control type="label"><!--Fallback-->
+						<left>835</left>
+						<top>540</top>
+						<width>645</width>
+						<height>35</height>
+						<font>button2</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<textcolor>$INFO[Skin.String(color.500)]</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label fallback="[COLORgrey].....[/COLOR]">$INFO[ListItem.Property(Artist_Died)]</label>
+						<visible>String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.died))</visible>
+					</control>
+				</control>
+				<control type="image">
+					<visible>!Skin.HasSetting(Shadow)</visible>
+					<left>772</left>
+					<top>567</top>
+					<width>64</width>
+					<height>64</height>
+					<aspectratio>keep</aspectratio>
+					<texture colordiffuse="black">icons/genre.png</texture>
+				</control>
+				<control type="image">
+					<left>775</left>
+					<top>565</top>
+					<width>64</width>
+					<height>64</height>
+					<aspectratio>keep</aspectratio>
+					<texture>icons/genre.png</texture>
+				</control>
+				<control type="label">
+					<visible>!Skin.HasSetting(Shadow)</visible>
+					<left>837</left>
+					<top>582</top>
+					<width>605</width>
+					<height>35</height>
+					<font>button2</font>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textcolor>black</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<label fallback=".....">$INFO[Window(Home).Property(SkinHelper.ListItem.Genre)]</label>
+					<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Genre))</visible>
+					<scroll>true</scroll>
+				</control>
+				<control type="label">
+					<left>835</left>
+					<top>580</top>
+					<width>605</width>
+					<height>35</height>
+					<font>button2</font>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textcolor>$INFO[Skin.String(color.500)]</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<label fallback="[COLORgrey].....[/COLOR]">$INFO[Window(Home).Property(SkinHelper.ListItem.Genre)]</label>
+					<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Genre))</visible>
+					<scroll>true</scroll>
+				</control>
+				<control type="label"><!--Fallback-->
+					<visible>!Skin.HasSetting(Shadow)</visible>
+					<left>837</left>
+					<top>582</top>
+					<width>605</width>
+					<height>35</height>
+					<font>button2</font>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textcolor>black</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<label fallback=".....">$INFO[ListItem.Genre]</label>
+					<visible>String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Genre))</visible>
+					<scroll>true</scroll>
+				</control>
+				<control type="label"><!--Fallback-->
+					<left>835</left>
+					<top>580</top>
+					<width>605</width>
+					<height>35</height>
+					<font>button2</font>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textcolor>$INFO[Skin.String(color.500)]</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<label fallback="[COLORgrey].....[/COLOR]">$INFO[ListItem.Genre]</label>
+					<visible>String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Genre))</visible>
+					<scroll>true</scroll>
+				</control>
+				<control type="image">
+					<visible>!Skin.HasSetting(Shadow)</visible>
+					<left>780</left>
+					<top>612</top>
+					<width>60</width>
+					<height>60</height>
+					<aspectratio>keep</aspectratio>
+					<texture colordiffuse="black">defaultactor.png</texture>
+				</control>
+				<control type="image">
+					<left>778</left>
+					<top>610</top>
+					<width>60</width>
+					<height>60</height>
+					<aspectratio>keep</aspectratio>
+					<texture>defaultactor.png</texture>
+				</control>
+				<control type="label">
+					<visible>!Skin.HasSetting(Shadow)</visible>
+					<left>837</left>
+					<top>627</top>
+					<width>610</width>
+					<height>35</height>
+					<font>button2</font>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textcolor>black</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<label fallback=".....">$INFO[Listitem.Property(Artist_Type)]</label>
+					<scroll>true</scroll>
+				</control>
+				<control type="label">
+					<left>835</left>
+					<top>625</top>
+					<width>610</width>
+					<height>35</height>
+					<font>button2</font>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textcolor>$INFO[Skin.String(color.500)]</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<label fallback="[COLORgrey].....[/COLOR]">$INFO[Listitem.Property(Artist_Type)]</label>
+					<scroll>true</scroll>
+				</control>
+				<control type="image">
+					<visible>!Skin.HasSetting(Shadow)</visible>
+					<left>796</left>
+					<top>666</top>
+					<width>650</width>
+					<height>1</height>
+					<texture colordiffuse="black">backgrounds/white.png</texture>
+				</control>
+				<control type="image">
+					<left>795</left>
+					<top>665</top>
+					<width>650</width>
+					<height>1</height>
+					<texture colordiffuse="$INFO[Skin.String(color.500)]">backgrounds/white.png</texture>
+				</control>
+				<control type="group">
+					<visible>Skin.HasSetting(AutoPlotVideo)</visible>
+					<top>190</top>
+					<control type="textbox">
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>797</left>
+						<top>482</top>
+						<width>650</width>
+						<height>190</height>
+						<font>font12</font>
+						<align>justify</align>
+						<textcolor>black</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label>$INFO[Window(Home).Property(SkinHelper.ListItem.Plot]</label>
+						<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Plot))</visible>
+						<autoscroll time="2000" delay="6000" repeat="10000">true</autoscroll>
+					</control>
+					<control type="textbox">
+						<left>795</left>
+						<top>480</top>
+						<width>650</width>
+						<height>190</height>
+						<font>font12</font>
+						<align>justify</align>
+						<textcolor>white</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label>$INFO[Window(Home).Property(SkinHelper.ListItem.Plot]</label>
+						<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Plot))</visible>
+						<autoscroll time="2000" delay="6000" repeat="10000">true</autoscroll>
+					</control>
+					<control type="textbox"><!--Fallback-->
+						<left>797</left>
+						<top>482</top>
+						<width>650</width>
+						<height>190</height>
+						<font>font12</font>
+						<align>justify</align>
+						<textcolor>black</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label>$INFO[ListItem.Property(Artist_Description)]</label>
+						<visible>String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Plot))</visible>
+						<autoscroll time="2000" delay="6000" repeat="10000">true</autoscroll>
+					</control>
+					<control type="textbox"><!--Fallback-->
+						<left>795</left>
+						<top>480</top>
+						<width>650</width>
+						<height>190</height>
+						<font>font12</font>
+						<align>justify</align>
+						<textcolor>white</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label>$INFO[ListItem.Property(Artist_Description) ]</label>
+						<visible>String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Plot))</visible>
+						<autoscroll time="2000" delay="6000" repeat="10000">true</autoscroll>
+					</control>
+				</control>
+				<control type="group">
+					<visible>!Skin.HasSetting(AutoPlotVideo)</visible>
+					<top>190</top>
+					<control type="textbox">
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>797</left>
+						<top>482</top>
+						<width>650</width>
+						<height>190</height>
+						<font>font12</font>
+						<align>justify</align>
+						<textcolor>black</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label>$INFO[Window(Home).Property(SkinHelper.ListItem.Plot]</label>
+						<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Plot))</visible>
+					</control>
+					<control type="textbox">
+						<left>795</left>
+						<top>480</top>
+						<width>650</width>
+						<height>190</height>
+						<font>font12</font>
+						<align>justify</align>
+						<textcolor>white</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label>$INFO[Window(Home).Property(SkinHelper.ListItem.Plot]</label>
+						<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Plot))</visible>
+					</control>
+					<control type="textbox"><!--Fallback-->
+						<left>797</left>
+						<top>482</top>
+						<width>650</width>
+						<height>190</height>
+						<font>font12</font>
+						<align>justify</align>
+						<textcolor>black</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label>$INFO[ListItem.Property(Artist_Description)]</label>
+						<visible>String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Plot))</visible>
+					</control>
+					<control type="textbox"><!--Fallback-->
+						<left>795</left>
+						<top>480</top>
+						<width>650</width>
+						<height>190</height>
+						<font>font12</font>
+						<align>justify</align>
+						<textcolor>white</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label>$INFO[ListItem.Property(Artist_Description)]</label>
+						<visible>String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Plot))</visible>
+					</control>
+				</control>
+			</control>
+			<control type="group">
+				<visible>Container.Content(Artists)</visible>
+				<control type="image">
+					<visible>!Skin.HasSetting(Shadow)</visible>
+					<left>427r</left>
+					<top>438</top>
+					<width>400</width>
+					<height>500</height>
+					<aspectratio aligny="bottom">keep</aspectratio>
+					<texture colordiffuse="black">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.ArtistThumb]</texture>
+					<bordertexture></bordertexture>
+					<bordersize>10</bordersize>
+					<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ArtistThumb))</visible>
+				</control>
+				<control type="image">
+					<left>430r</left>
+					<top>435</top>
+					<width>400</width>
+					<height>500</height>
+					<aspectratio aligny="bottom">keep</aspectratio>
+					<texture>$INFO[Window(Home).Property(SkinHelper.ListItem.Art.ArtistThumb]</texture>
+					<bordertexture></bordertexture>
+					<bordersize>10</bordersize>
+					<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ArtistThumb))</visible>
+				</control>
+				<control type="image"><!--Fallback-->
+					<visible>!Skin.HasSetting(Shadow)</visible>
+					<left>427r</left>
+					<top>438</top>
+					<width>400</width>
+					<height>500</height>
+					<aspectratio aligny="bottom">keep</aspectratio>
+					<texture colordiffuse="black">$INFO[ListItem.Icon]</texture>
+					<bordertexture></bordertexture>
+					<bordersize>10</bordersize>
+					<visible>String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ArtistThumb))</visible>
+				</control>
+				<control type="image"><!--Fallback-->
+					<left>430r</left>
+					<top>435</top>
+					<width>400</width>
+					<height>500</height>
+					<aspectratio aligny="bottom">keep</aspectratio>
+					<texture>$INFO[ListItem.Icon]</texture>
+					<bordertexture></bordertexture>
+					<bordersize>10</bordersize>
+					<visible>String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ArtistThumb))</visible>
+				</control>
+			</control>
+			<control type="group">
+				<visible>Container.Content(Addons)</visible>
+				<visible>!String.IsEmpty(ListItem.AddonType)</visible>
+				<control type="image">
+					<visible>!Skin.HasSetting(Shadow)</visible>
+					<left>792</left>
+					<top>497</top>
+					<width>35</width>
+					<height>35</height>
+					<aspectratio>keep</aspectratio>
+					<texture colordiffuse="black">icons/addons.png</texture>
+				</control>
+				<control type="image">
+					<left>790</left>
+					<top>495</top>
+					<width>35</width>
+					<height>35</height>
+					<aspectratio>keep</aspectratio>
+					<texture>icons/addons.png</texture>
+				</control>
+				<control type="label">
+					<visible>!Skin.HasSetting(Shadow)</visible>
+					<left>837</left>
+					<top>497</top>
+					<width>645</width>
+					<height>35</height>
+					<font>button2</font>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textcolor>black</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<label fallback=".....">$INFO[ListItem.Property(Addon.ID)] $INFO[ListItem.AddonVersion,- v.]</label>
+					<scroll>true</scroll>
+				</control>
+				<control type="label">
+					<left>835</left>
+					<top>495</top>
+					<width>645</width>
+					<height>35</height>
+					<font>button2</font>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textcolor>$INFO[Skin.String(color.500)]</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<label fallback="[COLORgrey].....[/COLOR]">$INFO[ListItem.Property(Addon.ID)] $INFO[ListItem.AddonVersion,[COLORwhite]-[/COLOR] v.]</label>
+					<scroll>true</scroll>
+				</control>
+				<control type="image">
+					<visible>!Skin.HasSetting(Shadow)</visible>
+					<left>782</left>
+					<top>532</top>
+					<width>55</width>
+					<height>55</height>
+					<aspectratio>keep</aspectratio>
+					<texture colordiffuse="black">defaultactor.png</texture>
+				</control>
+				<control type="image">
+					<left>780</left>
+					<top>530</top>
+					<width>55</width>
+					<height>55</height>
+					<aspectratio>keep</aspectratio>
+					<texture>defaultactor.png</texture>
+				</control>
+				<control type="label">
+					<visible>!Skin.HasSetting(Shadow)</visible>
+					<left>837</left>
+					<top>542</top>
+					<width>645</width>
+					<height>35</height>
+					<font>button2</font>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textcolor>black</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<label fallback=".....">$INFO[ListItem.AddonCreator]</label>
+					<scroll>true</scroll>
+				</control>
+				<control type="label">
+					<left>835</left>
+					<top>540</top>
+					<width>645</width>
+					<height>35</height>
+					<font>button2</font>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textcolor>$INFO[Skin.String(color.500)]</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<label fallback="[COLORgrey].....[/COLOR]">$INFO[ListItem.AddonCreator]</label>
+					<scroll>true</scroll>
+				</control>
+				<control type="image">
+					<visible>!Skin.HasSetting(Shadow)</visible>
+					<left>772</left>
+					<top>567</top>
+					<width>64</width>
+					<height>64</height>
+					<aspectratio>keep</aspectratio>
+					<texture colordiffuse="black">icons/genre.png</texture>
+				</control>
+				<control type="image">
+					<left>790</left>
+					<top>580</top>
+					<width>35</width>
+					<height>35</height>
+					<aspectratio>keep</aspectratio>
+					<texture>icons/info.png</texture>
+				</control>
+				<control type="label">
+					<visible>!Skin.HasSetting(Shadow)</visible>
+					<left>837</left>
+					<top>582</top>
+					<width>645</width>
+					<height>35</height>
+					<font>button2</font>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textcolor>black</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<label fallback=".....">$INFO[ListItem.Property(Addon.Status)]</label>
+					<scroll>true</scroll>
+				</control>
+				<control type="label">
+					<left>835</left>
+					<top>580</top>
+					<width>645</width>
+					<height>35</height>
+					<font>button2</font>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textcolor>$INFO[Skin.String(color.500)]</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<label fallback="[COLORgrey].....[/COLOR]">$INFO[ListItem.Property(Addon.Status)]</label>
+					<scroll>true</scroll>
+				</control>
+				<control type="image">
+					<visible>!Skin.HasSetting(Shadow)</visible>
+					<left>796</left>
+					<top>626</top>
+					<width>645</width>
+					<height>1</height>
+					<texture colordiffuse="black">backgrounds/white.png</texture>
+				</control>
+				<control type="image">
+					<left>795</left>
+					<top>625</top>
+					<width>645</width>
+					<height>1</height>
+					<texture colordiffuse="$INFO[Skin.String(color.500)]">backgrounds/white.png</texture>
+				</control>
+				<control type="label">
+					<visible>!Skin.HasSetting(Shadow)</visible>
+					<left>797</left>
+					<top>637</top>
+					<width>645</width>
+					<height>35</height>
+					<font>button2</font>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textcolor>black</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<label fallback=".....">$INFO[ListItem.AddonSummary]</label>
+					<scroll>true</scroll>
+				</control>
+				<control type="label">
+					<left>795</left>
+					<top>635</top>
+					<width>645</width>
+					<height>35</height>
+					<font>button2</font>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textcolor>$INFO[Skin.String(color.500)]</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<label fallback="[COLORgrey].....[/COLOR]">$INFO[ListItem.AddonSummary]</label>
+					<scroll>true</scroll>
+				</control>
+				<control type="textbox">
+					<visible>!Skin.HasSetting(Shadow)</visible>
+					<left>797</left>
+					<top>672</top>
+					<width>645</width>
+					<height>190</height>
+					<font>font12</font>
+					<align>justify</align>
+					<textcolor>black</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<label>$INFO[ListItem.AddonDescription]</label>
+					<autoscroll time="2000" delay="6000" repeat="10000">true</autoscroll>
+				</control>
+				<control type="textbox">
+					<left>795</left>
+					<top>670</top>
+					<width>645</width>
+					<height>190</height>
+					<font>font12</font>
+					<align>justify</align>
+					<textcolor>white</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<label>$INFO[ListItem.AddonDescription]</label>
+					<autoscroll time="2000" delay="6000" repeat="10000">true</autoscroll>
+				</control>
+				<control type="label">
+					<visible>!Skin.HasSetting(Shadow)</visible>
+					<left>797</left>
+					<top>882</top>
+					<width>645</width>
+					<height>35</height>
+					<font>font12</font>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textcolor>black</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<label fallback=".....">[I]$INFO[ListItem.AddonDisclaimer][/I]</label>
+					<scroll>true</scroll>
+				</control>
+				<control type="label">
+					<left>795</left>
+					<top>880</top>
+					<width>645</width>
+					<height>35</height>
+					<font>font12</font>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textcolor>grey</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<label fallback="[COLORgrey].....[/COLOR]">[I]$INFO[ListItem.AddonDisclaimer][/I]</label>
+					<scroll>true</scroll>
+				</control>
+			</control>
+			<control type="group">
+				<visible>Skin.HasSetting(ViewHideInfo)</visible>
+				<visible>Container.Content(Images)</visible>
+				<control type="label">
+					<left>770</left>
+					<top>665</top>
+					<width>240</width>
+					<height>35</height>
+					<font>button2</font>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textcolor>$INFO[Skin.String(color.500)]</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<label>$LOCALIZE[31979]</label>
+					<visible>!String.IsEmpty(ListItem.PictureDatetime)</visible>
+				</control>
+				<control type="label">
+					<left>990</left>
+					<top>665</top>
+					<width>300</width>
+					<height>35</height>
+					<font>button2</font>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textcolor>white</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<label>$INFO[ListItem.PictureDatetime]</label>
+					<visible>!String.IsEmpty(ListItem.PictureDatetime)</visible>
+				</control>
+				<control type="label">
+					<left>770</left>
+					<top>705</top>
+					<width>240</width>
+					<height>35</height>
+					<font>button2</font>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textcolor>$INFO[Skin.String(color.500)]</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<label>$LOCALIZE[31980]</label>
+					<visible>!String.IsEmpty(ListItem.ListItem.PictureCity)</visible>
+				</control>
+				<control type="label">
+					<left>945</left>
+					<top>705</top>
+					<width>530</width>
+					<height>35</height>
+					<font>button2</font>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textcolor>white</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<label>$INFO[ListItem.PictureCity] / $INFO[ListItem.PictureCountry]</label>
+					<visible>!String.IsEmpty(ListItem.PictureCity)</visible>
+					<scroll>true</scroll>
+				</control>
+				<control type="label">
+					<left>770</left>
+					<top>745</top>
+					<width>240</width>
+					<height>35</height>
+					<font>button2</font>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textcolor>$INFO[Skin.String(color.500)]</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<label>$LOCALIZE[31981]</label>
+					<visible>!String.IsEmpty(ListItem.PictureResolution)</visible>
+				</control>
+				<control type="label">
+					<left>920</left>
+					<top>745</top>
+					<width>420</width>
+					<height>35</height>
+					<font>button2</font>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textcolor>white</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<label>$INFO[ListItem.PictureResolution]</label>
+					<visible>!String.IsEmpty(ListItem.PictureResolution)</visible>
+					<scroll>true</scroll>
+				</control>
+				<control type="label">
+					<left>770</left>
+					<top>785</top>
+					<width>240</width>
+					<height>35</height>
+					<font>button2</font>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textcolor>$INFO[Skin.String(color.500)]</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<label>$LOCALIZE[31982]</label>
+					<visible>!String.IsEmpty(ListItem.PictureCamMake)</visible>
+				</control>
+				<control type="label">
+					<left>890</left>
+					<top>785</top>
+					<width>420</width>
+					<height>35</height>
+					<font>button2</font>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textcolor>white</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<label>$INFO[ListItem.PictureCamMake] / $INFO[ListItem.PictureCamModel]</label>
+					<visible>!String.IsEmpty(ListItem.PictureCamMake)</visible>
+					<scroll>true</scroll>
+				</control>
+			</control>
+			<control type="group">
+				<visible>Skin.HasSetting(HideFlagVideo)</visible>
+				<visible>Container.Content(Movies) | Container.Content(Seasons) | Container.Content(TVShows) | Container.Content(Episodes)| Container.Content(Sets)</visible>
+				<visible>!String.IsEmpty(ListItem.AudioChannels,flags/audio/,.png)</visible>
+				<left>490r</left>
+				<top>940</top>
+				<control type="image">
+					<visible>!Skin.HasSetting(Shadow)</visible>
+					<left>-84</left>
+					<top>2</top>
+					<width>86</width>
+					<height>33</height>
+					<texture colordiffuse="black">$INFO[ListItem.HdrType,flags/videohdr/,.png]</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="image">
+					<left>-86</left>
+					<top>0</top>
+					<width>86</width>
+					<height>33</height>
+					<texture>$INFO[ListItem.HdrType,flags/videohdr/,.png]</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="image">
+					<visible>!Skin.HasSetting(Shadow)</visible>
+					<left>7</left>
+					<top>2</top>
+					<width>86</width>
+					<height>33</height>
+					<texture colordiffuse="black">$INFO[ListItem.VideoAspect,flags/aspectratio/,.png]</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="image">
+					<left>5</left>
+					<top>0</top>
+					<width>86</width>
+					<height>33</height>
+					<texture>$INFO[ListItem.VideoAspect,flags/aspectratio/,.png]</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="image">
+					<visible>!Skin.HasSetting(Shadow)</visible>
+					<left>98</left>
+					<top>2</top>
+					<width>86</width>
+					<height>33</height>
+					<texture colordiffuse="black">$INFO[ListItem.VideoResolution,flags/resolution/,.png]</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="image">
+					<left>96</left>
+					<top>0</top>
+					<width>86</width>
+					<height>33</height>
+					<texture>$INFO[ListItem.VideoResolution,flags/resolution/,.png]</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="image">
+					<visible>!Skin.HasSetting(Shadow)</visible>
+					<left>189</left>
+					<top>2</top>
+					<width>86</width>
+					<height>33</height>
+					<texture colordiffuse="black">$INFO[ListItem.VideoCodec,flags/videocodec/,.png]</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="image">
+					<left>187</left>
+					<top>0</top>
+					<width>86</width>
+					<height>33</height>
+					<texture>$INFO[ListItem.VideoCodec,flags/videocodec/,.png]</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="image">
+					<visible>!Skin.HasSetting(Shadow)</visible>
+					<left>280</left>
+					<top>2</top>
+					<width>86</width>
+					<height>33</height>
+					<texture colordiffuse="black">$INFO[ListItem.AudioCodec,flags/audio/,.png]</texture>
+					<aspectratio>keep</aspectratio>
+					<visible>!String.Contains(ListItem.FilenameAndPath,.atmos)</visible>
+				</control>
+				<control type="image">
+					<left>278</left>
+					<top>0</top>
+					<width>86</width>
+					<height>33</height>
+					<texture>$INFO[ListItem.AudioCodec,flags/audio/,.png]</texture>
+					<aspectratio>keep</aspectratio>
+					<visible>!String.Contains(ListItem.FilenameAndPath,.atmos)</visible>
+				</control>
+				<control type="image">
+					<visible>!Skin.HasSetting(Shadow)</visible>
+					<left>280</left>
+					<top>2</top>
+					<width>86</width>
+					<height>33</height>
+					<texture colordiffuse="black">flags/audio/atmos.png</texture>
+					<aspectratio>keep</aspectratio>
+					<visible>String.Contains(ListItem.FilenameAndPath,.atmos)</visible>
+				</control>
+				<control type="image">
+					<left>278</left>
+					<top>0</top>
+					<width>86</width>
+					<height>33</height>
+					<texture>flags/audio/atmos.png</texture>
+					<aspectratio>keep</aspectratio>
+					<visible>String.Contains(ListItem.FilenameAndPath,.atmos)</visible>
+				</control>
+				<control type="image">
+					<visible>!Skin.HasSetting(Shadow)</visible>
+					<left>371</left>
+					<top>2</top>
+					<width>86</width>
+					<height>33</height>
+					<texture colordiffuse="black">$INFO[ListItem.AudioChannels,flags/audio/,.png]</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="image">
+					<left>369</left>
+					<top>0</top>
+					<width>86</width>
+					<height>33</height>
+					<texture>$INFO[ListItem.AudioChannels,flags/audio/,.png]</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+			</control>
+			<control type="group">
+				<visible>Container.Content(Sets)</visible>
+				<visible>Skin.HasSetting(HideDiscVideo)</visible>
+				<control type="image">
+					<top>320</top>
+					<left>-500r</left>
+					<width>150</width>
+					<height>150</height>
+					<fadetime>1000</fadetime>
+					<texture>$INFO[Window(Home).Property(SkinHelper.ListItem.1.Art.DiscArt)]</texture>
+					<animation type="Conditional" condition="!Container(50).OnNext + !Container(50).OnPrevious" reversible="false">
+						<effect type="fade" start="0" end="100" time="50" delay="1000"/>
+					</animation>
+					<animation type="Conditional" condition="!Container(50).OnNext + !Container(50).OnPrevious" reversible="false">
+						<effect type="slide" end="-1630" time="1000" delay="1000" tween="linear"/>
+					</animation>
+					<animation type="Visible" reversible="false">
+						<effect type="fade" start="0" end="100" time="1500" tween="linear"/>
+					</animation>
+					<animation type="Hidden" reversible="false">
+						<effect type="fade" start="100" end="0" time="500" tween="linear"/>
+					</animation>
+				</control>
+				<control type="image">
+					<top>320</top>
+					<left>-500r</left>
+					<width>150</width>
+					<height>150</height>
+					<fadetime>1000</fadetime>
+					<texture>$INFO[Window(Home).Property(SkinHelper.ListItem.2.Art.DiscArt)]</texture>
+					<animation type="Conditional" condition="!Container(50).OnNext + !Container(50).OnPrevious" reversible="false">
+						<effect type="fade" start="0" end="100" time="50" delay="1000"/>
+					</animation>
+					<animation type="Conditional" condition="!Container(50).OnNext + !Container(50).OnPrevious" reversible="false">
+						<effect type="slide" end="-1555" time="1500" delay="1000" tween="linear"/>
+					</animation>
+					<animation type="Visible" reversible="false">
+						<effect type="fade" start="0" end="100" time="1500" tween="linear"/>
+					</animation>
+					<animation type="Hidden" reversible="false">
+						<effect type="fade" start="100" end="0" time="500" tween="linear"/>
+					</animation>
+				</control>
+				<control type="image">
+					<top>320</top>
+					<left>-500r</left>
+					<width>150</width>
+					<height>150</height>
+					<fadetime>1000</fadetime>
+					<texture>$INFO[Window(Home).Property(SkinHelper.ListItem.3.Art.DiscArt)]</texture>
+					<animation type="Conditional" condition="!Container(50).OnNext + !Container(50).OnPrevious" reversible="false">
+						<effect type="fade" start="0" end="100" time="50" delay="1000"/>
+					</animation>
+					<animation type="Conditional" condition="!Container(50).OnNext + !Container(50).OnPrevious" reversible="false">
+						<effect type="slide" end="-1480" time="2000" delay="1000" tween="linear"/>
+					</animation>
+					<animation type="Visible" reversible="false">
+						<effect type="fade" start="0" end="100" time="1500" tween="linear"/>
+					</animation>
+					<animation type="Hidden" reversible="false">
+						<effect type="fade" start="100" end="0" time="500" tween="linear"/>
+					</animation>
+				</control>
+				<control type="image">
+					<top>320</top>
+					<left>-500r</left>
+					<width>150</width>
+					<height>150</height>
+					<fadetime>1000</fadetime>
+					<texture>$INFO[Window(Home).Property(SkinHelper.ListItem.4.Art.DiscArt)]</texture>
+					<animation type="Conditional" condition="!Container(50).OnNext + !Container(50).OnPrevious" reversible="false">
+						<effect type="fade" start="0" end="100" time="50" delay="1000"/>
+					</animation>
+					<animation type="Conditional" condition="!Container(50).OnNext + !Container(50).OnPrevious" reversible="false">
+						<effect type="slide" end="-1405" time="2500" delay="1000" tween="linear"/>
+					</animation>
+					<animation type="Visible" reversible="false">
+						<effect type="fade" start="0" end="100" time="1500" tween="linear"/>
+					</animation>
+					<animation type="Hidden" reversible="false">
+						<effect type="fade" start="100" end="0" time="500" tween="linear"/>
+					</animation>
+				</control>
+				<control type="image">
+					<top>320</top>
+					<left>-500r</left>
+					<width>150</width>
+					<height>150</height>
+					<fadetime>1000</fadetime>
+					<texture>$INFO[Window(Home).Property(SkinHelper.ListItem.5.Art.DiscArt)]</texture>
+					<animation type="Conditional" condition="!Container(50).OnNext + !Container(50).OnPrevious" reversible="false">
+						<effect type="fade" start="0" end="100" time="50" delay="1000"/>
+					</animation>
+					<animation type="Conditional" condition="!Container(50).OnNext + !Container(50).OnPrevious" reversible="false">
+						<effect type="slide" end="-1330" time="3000" delay="1000" tween="linear"/>
+					</animation>
+					<animation type="Visible" reversible="false">
+						<effect type="fade" start="0" end="100" time="1500" tween="linear"/>
+					</animation>
+					<animation type="Hidden" reversible="false">
+						<effect type="fade" start="100" end="0" time="500" tween="linear"/>
+					</animation>
+				</control>
+				<control type="image">
+					<top>320</top>
+					<left>-500r</left>
+					<width>150</width>
+					<height>150</height>
+					<fadetime>1000</fadetime>
+					<texture>$INFO[Window(Home).Property(SkinHelper.ListItem.6.Art.DiscArt)]</texture>
+					<animation type="Conditional" condition="!Container(50).OnNext + !Container(50).OnPrevious" reversible="false">
+						<effect type="fade" start="0" end="100" time="50" delay="1000"/>
+					</animation>
+					<animation type="Conditional" condition="!Container(50).OnNext + !Container(50).OnPrevious" reversible="false">
+						<effect type="slide" end="-1255" time="3500" delay="1000" tween="linear"/>
+					</animation>
+					<animation type="Visible" reversible="false">
+						<effect type="fade" start="0" end="100" time="1500" tween="linear"/>
+					</animation>
+					<animation type="Hidden" reversible="false">
+						<effect type="fade" start="100" end="0" time="500" tween="linear"/>
+					</animation>
+				</control>
+				<control type="image">
+					<top>320</top>
+					<left>-500r</left>
+					<width>150</width>
+					<height>150</height>
+					<fadetime>1000</fadetime>
+					<texture>$INFO[Window(Home).Property(SkinHelper.ListItem.7.Art.DiscArt)]</texture>
+					<animation type="Conditional" condition="!Container(50).OnNext + !Container(50).OnPrevious" reversible="false">
+						<effect type="fade" start="0" end="100" time="50" delay="1000"/>
+					</animation>
+					<animation type="Conditional" condition="!Container(50).OnNext + !Container(50).OnPrevious" reversible="false">
+						<effect type="slide" end="-1180" time="4000" delay="1000" tween="linear"/>
+					</animation>
+					<animation type="Visible" reversible="false">
+						<effect type="fade" start="0" end="100" time="1500" tween="linear"/>
+					</animation>
+					<animation type="Hidden" reversible="false">
+						<effect type="fade" start="100" end="0" time="500" tween="linear"/>
+					</animation>
+				</control>
+				<control type="image">
+					<top>320</top>
+					<left>-500r</left>
+					<width>150</width>
+					<height>150</height>
+					<fadetime>1000</fadetime>
+					<texture>$INFO[Window(Home).Property(SkinHelper.ListItem.8.Art.DiscArt)]</texture>
+					<animation type="Conditional" condition="!Container(50).OnNext + !Container(50).OnPrevious" reversible="false">
+						<effect type="fade" start="0" end="100" time="50" delay="1000"/>
+					</animation>
+					<animation type="Conditional" condition="!Container(50).OnNext + !Container(50).OnPrevious" reversible="false">
+						<effect type="slide" end="-1105" time="4500" delay="1000" tween="linear"/>
+					</animation>
+					<animation type="Visible" reversible="false">
+						<effect type="fade" start="0" end="100" time="1500" tween="linear"/>
+					</animation>
+					<animation type="Hidden" reversible="false">
+						<effect type="fade" start="100" end="0" time="500" tween="linear"/>
+					</animation>
+				</control>
+				<control type="image">
+					<top>320</top>
+					<left>-500r</left>
+					<width>150</width>
+					<height>150</height>
+					<fadetime>1000</fadetime>
+					<texture>$INFO[Window(Home).Property(SkinHelper.ListItem.9.Art.DiscArt)]</texture>
+					<animation type="Conditional" condition="!Container(50).OnNext + !Container(50).OnPrevious" reversible="false">
+						<effect type="fade" start="0" end="100" time="50" delay="1000"/>
+					</animation>
+					<animation type="Conditional" condition="!Container(50).OnNext + !Container(50).OnPrevious" reversible="false">
+						<effect type="slide" end="-1030" time="5000" delay="1000" tween="linear"/>
+					</animation>
+					<animation type="Visible" reversible="false">
+						<effect type="fade" start="0" end="100" time="1500" tween="linear"/>
+					</animation>
+					<animation type="Hidden" reversible="false">
+						<effect type="fade" start="100" end="0" time="500" tween="linear"/>
+					</animation>
+				</control>
+				<control type="image">
+					<top>320</top>
+					<left>-500r</left>
+					<width>150</width>
+					<height>150</height>
+					<fadetime>1000</fadetime>
+					<texture>$INFO[Window(Home).Property(SkinHelper.ListItem.10.Art.DiscArt)]</texture>
+					<animation type="Conditional" condition="!Container(50).OnNext + !Container(50).OnPrevious" reversible="false">
+						<effect type="fade" start="0" end="100" time="50" delay="1000"/>
+					</animation>
+					<animation type="Conditional" condition="!Container(50).OnNext + !Container(50).OnPrevious" reversible="false">
+						<effect type="slide" end="-955" time="5500" delay="1000" tween="linear"/>
+					</animation>
+					<animation type="Visible" reversible="false">
+						<effect type="fade" start="0" end="100" time="1500" tween="linear"/>
+					</animation>
+					<animation type="Hidden" reversible="false">
+						<effect type="fade" start="100" end="0" time="500" tween="linear"/>
+					</animation>
+				</control>
+				<control type="image">
+					<top>320</top>
+					<left>-500r</left>
+					<width>150</width>
+					<height>150</height>
+					<fadetime>1000</fadetime>
+					<texture>$INFO[Window(Home).Property(SkinHelper.ListItem.11.Art.DiscArt)]</texture>
+					<animation type="Conditional" condition="!Container(50).OnNext + !Container(50).OnPrevious" reversible="false">
+						<effect type="fade" start="0" end="100" time="50" delay="1000"/>
+					</animation>
+					<animation type="Conditional" condition="!Container(50).OnNext + !Container(50).OnPrevious" reversible="false">
+						<effect type="slide" end="-880" time="6000" delay="1000" tween="linear"/>
+					</animation>
+					<animation type="Visible" reversible="false">
+						<effect type="fade" start="0" end="100" time="1500" tween="linear"/>
+					</animation>
+					<animation type="Hidden" reversible="false">
+						<effect type="fade" start="100" end="0" time="500" tween="linear"/>
+					</animation>
+				</control>
+				<control type="image">
+					<top>320</top>
+					<left>-500r</left>
+					<width>150</width>
+					<height>150</height>
+					<fadetime>1000</fadetime>
+					<texture>$INFO[Window(Home).Property(SkinHelper.ListItem.12.Art.DiscArt)]</texture>
+					<animation type="Conditional" condition="!Container(50).OnNext + !Container(50).OnPrevious" reversible="false">
+						<effect type="fade" start="0" end="100" time="50" delay="1000"/>
+					</animation>
+					<animation type="Conditional" condition="!Container(50).OnNext + !Container(50).OnPrevious" reversible="false">
+						<effect type="slide" end="-805" time="6500" delay="1000" tween="linear"/>
+					</animation>
+					<animation type="Visible" reversible="false">
+						<effect type="fade" start="0" end="100" time="1500" tween="linear"/>
+					</animation>
+					<animation type="Hidden" reversible="false">
+						<effect type="fade" start="100" end="0" time="500" tween="linear"/>
+					</animation>
+				</control>
+				<control type="image">
+					<top>320</top>
+					<left>-500r</left>
+					<width>150</width>
+					<height>150</height>
+					<fadetime>1000</fadetime>
+					<texture>$INFO[Window(Home).Property(SkinHelper.ListItem.13.Art.DiscArt)]</texture>
+					<animation type="Conditional" condition="!Container(50).OnNext + !Container(50).OnPrevious" reversible="false">
+						<effect type="fade" start="0" end="100" time="50" delay="1000"/>
+					</animation>
+					<animation type="Conditional" condition="!Container(50).OnNext + !Container(50).OnPrevious" reversible="false">
+						<effect type="slide" end="-730" time="7000" delay="1000" tween="linear"/>
+					</animation>
+					<animation type="Visible" reversible="false">
+						<effect type="fade" start="0" end="100" time="1500" tween="linear"/>
+					</animation>
+					<animation type="Hidden" reversible="false">
+						<effect type="fade" start="100" end="0" time="500" tween="linear"/>
+					</animation>
+				</control>
+			</control>
+			<control type="group">
+				<!--visible>Skin.HasSetting(ViewHideInfo)</visible-->
+				<visible>Container.Content(Movies) | Container.Content(Seasons) | Container.Content(TVShows)</visible>
+				<visible>Skin.HasSetting(HideDiscVideo)</visible>
+				<control type="image">
+					<visible>!Skin.HasSetting(TMDbVideo)</visible>
+					<top>500</top>
+					<left>410r</left>
+					<width>360</width>
+					<height>360</height>
+					<fadetime>1000</fadetime>
+					<texture>$INFO[Window(Home).Property(TMDbHelper.ListItem.discart)]</texture>
+					<animation type="Conditional" condition="!Container(50).OnNext + !Container(50).OnPrevious" reversible="false">
+						<effect type="fade" start="0" end="100" time="50" delay="1000"/>
+					</animation>
+					<animation type="Conditional" condition="!Container(50).OnNext + !Container(50).OnPrevious" reversible="false">
+						<effect type="slide" start="0,0" end="0,-270" time="500" delay="1000" tween="cubic"/>
+					</animation>
+					<animation type="Visible" reversible="false">
+						<effect type="fade" start="0" end="100" time="1500" tween="cubic"/>
+					</animation>
+					<animation type="Hidden" reversible="false">
+						<effect type="fade" start="100" end="0" time="500" tween="cubic"/>
+					</animation>
+					<animation effect="rotate" end="-360" center="auto" time="12000" loop="true" reversible="false" condition="true">Conditional</animation>
+					<visible>!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.discart))</visible>
+				</control>
+				<control type="image"><!--Fallback-->
+					<top>500</top>
+					<left>410r</left>
+					<width>360</width>
+					<height>360</height>
+					<fadetime>1000</fadetime>
+					<texture>$INFO[ListItem.Art(discart)]</texture>
+					<animation type="Conditional" condition="!Container(50).OnNext + !Container(50).OnPrevious" reversible="false">
+						<effect type="fade" start="0" end="100" time="50" delay="1000"/>
+					</animation>
+					<animation type="Conditional" condition="!Container(50).OnNext + !Container(50).OnPrevious" reversible="false">
+						<effect type="slide" start="0,0" end="0,-270" time="500" delay="1000" tween="cubic"/>
+					</animation>
+					<animation type="Visible" reversible="false">
+						<effect type="fade" start="0" end="100" time="1500" tween="cubic"/>
+					</animation>
+					<animation type="Hidden" reversible="false">
+						<effect type="fade" start="100" end="0" time="500" tween="cubic"/>
+					</animation>
+					<animation effect="rotate" end="-360" center="auto" time="12000" loop="true" reversible="false" condition="true">Conditional</animation>
+					<visible>String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.discart))</visible>
+				</control>
+				<control type="image"><!--Fallback-->
+					<visible>Skin.HasSetting(TMDbVideo)</visible>
+					<top>500</top>
+					<left>410r</left>
+					<width>360</width>
+					<height>360</height>
+					<fadetime>1000</fadetime>
+					<texture>$INFO[ListItem.Art(discart)]</texture>
+					<animation type="Conditional" condition="!Container(50).OnNext + !Container(50).OnPrevious" reversible="false">
+						<effect type="fade" start="0" end="100" time="50" delay="1000"/>
+					</animation>
+					<animation type="Conditional" condition="!Container(50).OnNext + !Container(50).OnPrevious" reversible="false">
+						<effect type="slide" start="0,0" end="0,-270" time="500" delay="1000" tween="cubic"/>
+					</animation>
+					<animation type="Visible" reversible="false">
+						<effect type="fade" start="0" end="100" time="1500" tween="cubic"/>
+					</animation>
+					<animation type="Hidden" reversible="false">
+						<effect type="fade" start="100" end="0" time="500" tween="cubic"/>
+					</animation>
+					<animation effect="rotate" end="-360" center="auto" time="12000" loop="true" reversible="false" condition="true">Conditional</animation>
+				</control>
+			</control>
+			<control type="group">
+				<visible>!Container.Content(Movies)</visible>
+				<visible>!Container.Content(TVShows)</visible>
+				<visible>!Container.Content(Seasons)</visible>
+				<control type="image">
+					<visible>!Skin.HasSetting(Shadow)</visible>
+					<left>427r</left>
+					<top>438</top>
+					<width>400</width>
+					<height>500</height>
+					<aspectratio aligny="bottom">keep</aspectratio>
+					<texture colordiffuse="black">$INFO[ListItem.Icon]</texture>
+					<bordertexture></bordertexture>
+					<bordersize>10</bordersize>
+				</control>
+				<control type="image">
+					<left>430r</left>
+					<top>435</top>
+					<width>400</width>
+					<height>500</height>
+					<aspectratio aligny="bottom">keep</aspectratio>
+					<texture>$INFO[ListItem.Icon]</texture>
+					<bordertexture></bordertexture>
+					<bordersize>10</bordersize>
+				</control>
+			</control>
+			<control type="group">
+				<visible>Container.Content(Sets)</visible>
+				<visible>Skin.HasSetting(HideShellVideo)</visible>
+				<control type="group">
+					<visible>!Skin.HasSetting(TMDbVideo)</visible>
+					<control type="image">
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>427r</left>
+						<top>438</top>
+						<width>400</width>
+						<height>500</height>
+						<aspectratio aligny="bottom">stretch</aspectratio>
+						<texture background="true" colordiffuse="black">$INFO[Window(Home).Property(TMDbHelper.ListItem.poster)]</texture>
+						<bordertexture></bordertexture>
+						<bordersize>10</bordersize>
+						<visible>!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.poster))</visible>
+					</control>
+					<control type="image">
+						<left>430r</left>
+						<top>435</top>
+						<width>400</width>
+						<height>500</height>
+						<aspectratio aligny="bottom">stretch</aspectratio>
+						<texture background="true">$INFO[Window(Home).Property(TMDbHelper.ListItem.poster)]</texture>
+						<bordertexture></bordertexture>
+						<bordersize>10</bordersize>
+						<visible>!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.poster))</visible>
+					</control>
+					<control type="image">
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>427r</left>
+						<top>438</top>
+						<width>400</width>
+						<height>500</height>
+						<aspectratio aligny="bottom">stretch</aspectratio>
+						<texture background="true" colordiffuse="black">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.Poster)]</texture>
+						<bordertexture></bordertexture>
+						<bordersize>10</bordersize>
+						<visible>String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.poster))</visible>
+					</control>
+					<control type="image">
+						<left>430r</left>
+						<top>435</top>
+						<width>400</width>
+						<height>500</height>
+						<aspectratio aligny="bottom">stretch</aspectratio>
+						<texture background="true">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.Poster)]</texture>
+						<bordertexture></bordertexture>
+						<bordersize>10</bordersize>
+						<visible>String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.poster))</visible>
+					</control>
+				</control>
+				<control type="group">
+					<visible>Skin.HasSetting(TMDbVideo)</visible>
+					<control type="image">
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>427r</left>
+						<top>438</top>
+						<width>400</width>
+						<height>500</height>
+						<aspectratio aligny="bottom">stretch</aspectratio>
+						<texture background="true" colordiffuse="black">$INFO[ListItem.Art(poster)]</texture>
+						<bordertexture></bordertexture>
+						<bordersize>10</bordersize>
+					</control>
+					<control type="image">
+						<left>430r</left>
+						<top>435</top>
+						<width>400</width>
+						<height>500</height>
+						<aspectratio aligny="bottom">stretch</aspectratio>
+						<texture background="true">$INFO[ListItem.Art(poster)]</texture>
+						<bordertexture></bordertexture>
+						<bordersize>10</bordersize>
+					</control>
+				</control>
+				<control type="image">
+					<left>425r</left>
+					<top>400</top>
+					<width>390</width>
+					<height>530</height>
+					<aspectratio aligny="bottom">stretch</aspectratio>
+					<texture background="true">shell/set.png</texture>
+					<visible>ListItem.IsCollection</visible>
+				</control>
+				<control type="label">
+					<left>425r</left>
+					<top>408</top>
+					<width>390</width>
+					<height>35</height>
+					<font>label</font>
+					<align>center</align>
+					<aligny>center</aligny>
+					<textcolor>white</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<label>[B]FILMREIHE[/B]</label>
+					<visible>ListItem.IsCollection</visible>
+				</control>
+			</control>
+			<control type="group">
+				<visible>Container.Content(Sets)</visible>
+				<visible>!Skin.HasSetting(HideShellVideo)</visible>
+				<control type="group">
+					<visible>!Skin.HasSetting(TMDbVideo)</visible>
+					<control type="image">
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>427r</left>
+						<top>438</top>
+						<width>400</width>
+						<height>500</height>
+						<aspectratio aligny="bottom">keep</aspectratio>
+						<texture diffuse="backgrounds/poster_diffuse.png" colordiffuse="black">$INFO[Window(Home).Property(TMDbHelper.ListItem.poster)]</texture>
+						<bordertexture></bordertexture>
+						<bordersize>10</bordersize>
+						<visible>!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.poster))</visible>
+					</control>
+					<control type="image">
+						<left>430r</left>
+						<top>435</top>
+						<width>400</width>
+						<height>500</height>
+						<aspectratio aligny="bottom">keep</aspectratio>
+						<texture diffuse="backgrounds/poster_diffuse.png">$INFO[Window(Home).Property(TMDbHelper.ListItem.poster)]</texture>
+						<bordertexture></bordertexture>
+						<bordersize>10</bordersize>
+						<visible>!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.poster))</visible>
+					</control>
+					<control type="image">
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>427r</left>
+						<top>438</top>
+						<width>400</width>
+						<height>500</height>
+						<aspectratio aligny="bottom">keep</aspectratio>
+						<texture diffuse="backgrounds/poster_diffuse.png" colordiffuse="black">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.Poster)]</texture>
+						<bordertexture></bordertexture>
+						<bordersize>10</bordersize>
+						<visible>String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.poster))</visible>
+					</control>
+					<control type="image">
+						<left>430r</left>
+						<top>435</top>
+						<width>400</width>
+						<height>500</height>
+						<aspectratio aligny="bottom">keep</aspectratio>
+						<texture diffuse="backgrounds/poster_diffuse.png">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.Poster)]</texture>
+						<bordertexture></bordertexture>
+						<bordersize>10</bordersize>
+						<visible>String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.poster))</visible>
+					</control>
+				</control>
+				<control type="group">
+					<visible>Skin.HasSetting(TMDbVideo)</visible>
+					<control type="image">
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>427r</left>
+						<top>438</top>
+						<width>400</width>
+						<height>500</height>
+						<aspectratio aligny="bottom">keep</aspectratio>
+						<texture diffuse="backgrounds/poster_diffuse.png" colordiffuse="black">$INFO[ListItem.Art(poster)]</texture>
+						<bordertexture></bordertexture>
+						<bordersize>10</bordersize>
+					</control>
+					<control type="image">
+						<left>430r</left>
+						<top>435</top>
+						<width>400</width>
+						<height>500</height>
+						<aspectratio aligny="bottom">keep</aspectratio>
+						<texture diffuse="backgrounds/poster_diffuse.png">$INFO[ListItem.Art(poster)]</texture>
+						<bordertexture></bordertexture>
+						<bordersize>10</bordersize>
+					</control>
+				</control>
+			</control>
+			<control type="group">
+				<visible>Container.Content(Movies) | Container.Content(TVShows)</visible>
+				<visible>Skin.HasSetting(HideShellVideo)</visible>
+				<control type="group">
+					<visible>!Skin.HasSetting(TMDbVideo)</visible>
+					<control type="image">
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>427r</left>
+						<top>438</top>
+						<width>400</width>
+						<height>500</height>
+						<aspectratio aligny="bottom">stretch</aspectratio>
+						<texture background="true" colordiffuse="black">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.Poster)]</texture>
+						<bordertexture></bordertexture>
+						<bordersize>10</bordersize>
+					</control>
+					<control type="image">
+						<left>430r</left>
+						<top>435</top>
+						<width>400</width>
+						<height>500</height>
+						<aspectratio aligny="bottom">stretch</aspectratio>
+						<texture background="true">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.Poster)]</texture>
+						<bordertexture></bordertexture>
+						<bordersize>10</bordersize>
+					</control>
+					<control type="group">
+						<visible>!String.IsEmpty(ListItem.Genre)</visible>
+						<control type="image">
+							<visible>!Skin.HasSetting(Shadow)</visible>
+							<left>427r</left>
+							<top>438</top>
+							<width>400</width>
+							<height>500</height>
+							<aspectratio aligny="bottom">stretch</aspectratio>
+							<texture background="true" colordiffuse="black">$INFO[Window(Home).Property(TMDbHelper.ListItem.poster)]</texture>
+							<bordertexture></bordertexture>
+							<bordersize>10</bordersize>
+							<visible>!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.poster))</visible>
+						</control>
+						<control type="image">
+							<left>430r</left>
+							<top>435</top>
+							<width>400</width>
+							<height>500</height>
+							<aspectratio aligny="bottom">stretch</aspectratio>
+							<texture background="true">$INFO[Window(Home).Property(TMDbHelper.ListItem.poster)]</texture>
+							<bordertexture></bordertexture>
+							<bordersize>10</bordersize>
+							<visible>!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.poster))</visible>
+						</control>
+					</control>
+				</control>
+				<control type="group">
+					<visible>Skin.HasSetting(TMDbVideo)</visible>
+					<control type="image">
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>427r</left>
+						<top>438</top>
+						<width>400</width>
+						<height>500</height>
+						<aspectratio aligny="bottom">stretch</aspectratio>
+						<texture background="true" colordiffuse="black">$INFO[ListItem.Art(poster)]</texture>
+						<bordertexture></bordertexture>
+						<bordersize>10</bordersize>
+					</control>
+					<control type="image">
+						<left>430r</left>
+						<top>435</top>
+						<width>400</width>
+						<height>500</height>
+						<aspectratio aligny="bottom">stretch</aspectratio>
+						<texture background="true">$INFO[ListItem.Art(poster)]</texture>
+						<bordertexture></bordertexture>
+						<bordersize>10</bordersize>
+					</control>
+				</control>
+			</control>
+			<control type="group">
+				<visible>Container.Content(Movies) | Container.Content(TVShows) | Container.Content(Seasons)</visible>
+				<visible>!Skin.HasSetting(HideShellVideo)</visible>
+				<control type="group">
+					<visible>!Skin.HasSetting(TMDbVideo)</visible>
+					<control type="image">
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>427r</left>
+						<top>438</top>
+						<width>400</width>
+						<height>500</height>
+						<aspectratio aligny="bottom">keep</aspectratio>
+						<texture diffuse="backgrounds/poster_diffuse.png" colordiffuse="black">$INFO[Window(Home).Property(TMDbHelper.ListItem.poster)]</texture>
+						<bordertexture></bordertexture>
+						<bordersize>10</bordersize>
+						<visible>!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.poster))</visible>
+					</control>
+					<control type="image">
+						<left>430r</left>
+						<top>435</top>
+						<width>400</width>
+						<height>500</height>
+						<aspectratio aligny="bottom">keep</aspectratio>
+						<texture diffuse="backgrounds/poster_diffuse.png">$INFO[Window(Home).Property(TMDbHelper.ListItem.poster)]</texture>
+						<bordertexture></bordertexture>
+						<bordersize>10</bordersize>
+						<visible>!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.poster))</visible>
+					</control>
+					<control type="image">
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>427r</left>
+						<top>438</top>
+						<width>400</width>
+						<height>500</height>
+						<aspectratio aligny="bottom">keep</aspectratio>
+						<texture diffuse="backgrounds/poster_diffuse.png" colordiffuse="black">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.Poster)]</texture>
+						<bordertexture></bordertexture>
+						<bordersize>10</bordersize>
+						<visible>String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.poster))</visible>
+					</control>
+					<control type="image">
+						<left>430r</left>
+						<top>435</top>
+						<width>400</width>
+						<height>500</height>
+						<aspectratio aligny="bottom">keep</aspectratio>
+						<texture diffuse="backgrounds/poster_diffuse.png">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.Poster)]</texture>
+						<bordertexture></bordertexture>
+						<bordersize>10</bordersize>
+						<visible>String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.poster))</visible>
+					</control>
+				</control>
+				<control type="group">
+					<visible>Skin.HasSetting(TMDbVideo)</visible>
+					<control type="image">
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>427r</left>
+						<top>438</top>
+						<width>400</width>
+						<height>500</height>
+						<aspectratio aligny="bottom">keep</aspectratio>
+						<texture diffuse="backgrounds/poster_diffuse.png" colordiffuse="black">$INFO[ListItem.Art(poster)]</texture>
+						<bordertexture></bordertexture>
+						<bordersize>10</bordersize>
+					</control>
+					<control type="image">
+						<left>430r</left>
+						<top>435</top>
+						<width>400</width>
+						<height>500</height>
+						<aspectratio aligny="bottom">keep</aspectratio>
+						<texture diffuse="backgrounds/poster_diffuse.png">$INFO[ListItem.Art(poster)]</texture>
+						<bordertexture></bordertexture>
+						<bordersize>10</bordersize>
+					</control>
+				</control>
+			</control>
+			
+			<control type="group">
+				<visible>Container.Content(Movies) | Container.Content(TVShows) | Container.Content(Seasons)</visible>
+				<visible>Skin.HasSetting(HideShellVideo)</visible>
+				<control type="group">
+					<visible>!Skin.HasSetting(TMDbVideo)</visible>
+					<control type="image">
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<visible>!String.IsEmpty(ListItem.Genre)</visible>
+						<left>427r</left>
+						<top>438</top>
+						<width>400</width>
+						<height>500</height>
+						<aspectratio aligny="bottom">stretch</aspectratio>
+						<texture background="true" colordiffuse="black">$INFO[Window(Home).Property(TMDbHelper.ListItem.poster)]</texture>
+						<bordertexture></bordertexture>
+						<bordersize>10</bordersize>
+						<visible>!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.poster))</visible>
+					</control>
+					<control type="image">
+					<visible>!String.IsEmpty(ListItem.Genre)</visible>
+						<left>430r</left>
+						<top>435</top>
+						<width>400</width>
+						<height>500</height>
+						<aspectratio aligny="bottom">stretch</aspectratio>
+						<texture background="true">$INFO[Window(Home).Property(TMDbHelper.ListItem.poster)]</texture>
+						<bordertexture></bordertexture>
+						<bordersize>10</bordersize>
+						<visible>!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.poster))</visible>
+					</control>
+					<control type="image">
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>427r</left>
+						<top>438</top>
+						<width>400</width>
+						<height>500</height>
+						<aspectratio aligny="bottom">stretch</aspectratio>
+						<texture background="true" colordiffuse="black">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.Poster)]</texture>
+						<bordertexture></bordertexture>
+						<bordersize>10</bordersize>
+						<visible>String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.poster))</visible>
+					</control>
+					<control type="image">
+						<left>430r</left>
+						<top>435</top>
+						<width>400</width>
+						<height>500</height>
+						<aspectratio aligny="bottom">stretch</aspectratio>
+						<texture background="true">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.Poster)]</texture>
+						<bordertexture></bordertexture>
+						<bordersize>10</bordersize>
+						<visible>String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.poster))</visible>
+					</control>
+				</control>
+				<control type="group">
+					<visible>Skin.HasSetting(TMDbVideo)</visible>
+					<control type="image">
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>427r</left>
+						<top>438</top>
+						<width>400</width>
+						<height>500</height>
+						<aspectratio aligny="bottom">stretch</aspectratio>
+						<texture background="true" colordiffuse="black">$INFO[ListItem.Art(poster)]</texture>
+						<bordertexture></bordertexture>
+						<bordersize>10</bordersize>
+					</control>
+					<control type="image">
+						<left>430r</left>
+						<top>435</top>
+						<width>400</width>
+						<height>500</height>
+						<aspectratio aligny="bottom">stretch</aspectratio>
+						<texture background="true">$INFO[ListItem.Art(poster)]</texture>
+						<bordertexture></bordertexture>
+						<bordersize>10</bordersize>
+					</control>
+				</control>
+			</control>
+			
+			<control type="group">
+				<visible>Container.Content(Episodes)</visible>
+				<control type="group">
+					<visible>!Skin.HasSetting(TMDbVideo)</visible>
+					<control type="image">
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>427r</left>
+						<top>438</top>
+						<width>400</width>
+						<height>500</height>
+						<aspectratio aligny="bottom">keep</aspectratio>
+						<texture diffuse="backgrounds/landscape_diffuse.png" colordiffuse="black">$INFO[Window(Home).Property(TMDbHelper.ListItem.thumb)]</texture>
+						<bordertexture></bordertexture>
+						<bordersize>10</bordersize>
+						<visible>!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.thumb))</visible>
+					</control>
+					<control type="image">
+						<left>430r</left>
+						<top>435</top>
+						<width>400</width>
+						<height>500</height>
+						<aspectratio aligny="bottom">keep</aspectratio>
+						<texture diffuse="backgrounds/landscape_diffuse.png">$INFO[Window(Home).Property(TMDbHelper.ListItem.thumb)]</texture>
+						<bordertexture></bordertexture>
+						<bordersize>10</bordersize>
+						<visible>!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.thumb))</visible>
+					</control>
+					<control type="image">
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>427r</left>
+						<top>438</top>
+						<width>400</width>
+						<height>500</height>
+						<aspectratio aligny="bottom">keep</aspectratio>
+						<texture diffuse="backgrounds/landscape_diffuse.png" colordiffuse="black">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.Thumb)]</texture>
+						<bordertexture></bordertexture>
+						<bordersize>10</bordersize>
+						<visible>String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.thumb))</visible>
+					</control>
+					<control type="image">
+						<left>430r</left>
+						<top>435</top>
+						<width>400</width>
+						<height>500</height>
+						<aspectratio aligny="bottom">keep</aspectratio>
+						<texture diffuse="backgrounds/landscape_diffuse.png">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.Thumb)]</texture>
+						<bordertexture></bordertexture>
+						<bordersize>10</bordersize>
+						<visible>String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.thumb))</visible>
+					</control>
+				</control>
+				<control type="group">
+					<visible>Skin.HasSetting(TMDbVideo)</visible>
+					<control type="image">
+						<visible>!Skin.HasSetting(Shadow)</visible>
+						<left>427r</left>
+						<top>438</top>
+						<width>400</width>
+						<height>500</height>
+						<aspectratio aligny="bottom">keep</aspectratio>
+						<texture diffuse="backgrounds/poster_diffuse.png" colordiffuse="black">$INFO[ListItem.Art(thumb)]</texture>
+						<bordertexture></bordertexture>
+						<bordersize>10</bordersize>
+					</control>
+					<control type="image">
+						<left>430r</left>
+						<top>435</top>
+						<width>400</width>
+						<height>500</height>
+						<aspectratio aligny="bottom">keep</aspectratio>
+						<texture diffuse="backgrounds/poster_diffuse.png">$INFO[ListItem.Art(thumb)]</texture>
+						<bordertexture></bordertexture>
+						<bordersize>10</bordersize>
+					</control>
+				</control>
+			</control>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<control type="group">
+			<visible>!String.IsEmpty(ListItem.Genre)</visible>
+				<control type="image">
+					<visible>Skin.HasSetting(HideShellVideo)</visible>
+					<visible>Container.Content(Movies) | Container.Content(Sets) | Container.Content(TVShows) | Container.Content(Seasons)</visible>
+					<left>425r</left>
+					<top>400</top>
+					<width>390</width>
+					<height>530</height>
+					<aspectratio aligny="bottom">stretch</aspectratio>
+					<texture colordiffuse="black">shell/stream.png</texture>
+					
+				</control>
+				<control type="image">
+					<visible>Skin.HasSetting(HideShellVideo)</visible>
+					<visible>Container.Content(Movies) | Container.Content(Sets) | Container.Content(TVShows) | Container.Content(Seasons)</visible>
+					<left>425r</left>
+					<top>400</top>
+					<width>390</width>
+					<height>530</height>
+					<aspectratio aligny="bottom">stretch</aspectratio>
+					<texture colordiffuse="black">shell/stream.png</texture>
+					
+				</control>
+				<control type="image">
+					<visible>Skin.HasSetting(HideShellVideo)</visible>
+					<visible>Container.Content(Movies) | Container.Content(Sets) | Container.Content(TVShows) | Container.Content(Seasons)</visible>
+					<visible>!Library.HasContent(TVShows)</visible>
+					<left>425r</left>
+					<top>400</top>
+					<width>390</width>
+					<height>530</height>
+					<aspectratio aligny="bottom">stretch</aspectratio>
+					<texture colordiffuse="black">shell/stream.png</texture>
+					
+				</control>
+				<control type="label">
+					<visible>Skin.HasSetting(HideShellVideo)</visible>
+					<visible>Container.Content(Movies) | Container.Content(Sets)</visible>
+					<left>435r</left>
+					<top>406</top>
+					<width>410</width>
+					<height>35</height>
+					<font>label</font>
+					<align>center</align>
+					<aligny>center</aligny>
+					<textcolor>white</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<label>[B]STREAM[/B]</label>
+					
+				</control>
+				<control type="label">
+					<visible>Skin.HasSetting(HideShellVideo)</visible>
+					<visible>Container.Content(TVShows) | Container.Content(Seasons)</visible>
+					<visible>!Library.HasContent(TVShows)</visible>
+					<left>435r</left>
+					<top>406</top>
+					<width>410</width>
+					<height>35</height>
+					<font>label</font>
+					<align>center</align>
+					<aligny>center</aligny>
+					<textcolor>white</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<label>[B]STREAM[/B]</label>
+					
+				</control>
+				
+				<control type="group">
+					<visible>Skin.HasSetting(HideShellVideo)</visible>
+					<visible>Library.HasContent(Movies)</visible>
+					<visible>Container.Content(Movies) | Container.Content(Sets)</visible>
+					<control type="image">
+						<left>425r</left>
+						<top>400</top>
+						<width>390</width>
+						<height>530</height>
+						<aspectratio aligny="bottom">stretch</aspectratio>
+						<texture>shell/dvd.png</texture>
+						<visible>String.Contains(ListItem.VideoResolution,288)</visible>
+					</control>
+					<control type="image">
+						<left>425r</left>
+						<top>400</top>
+						<width>390</width>
+						<height>530</height>
+						<aspectratio aligny="bottom">stretch</aspectratio>
+						<texture>shell/dvd.png</texture>
+						<visible>String.Contains(ListItem.VideoResolution,480)</visible>
+					</control>
+					<control type="image">
+						<left>425r</left>
+						<top>400</top>
+						<width>390</width>
+						<height>530</height>
+						<aspectratio aligny="bottom">stretch</aspectratio>
+						<texture>shell/dvd.png</texture>
+						<visible>String.Contains(ListItem.VideoResolution,540)</visible>
+					</control>
+					<control type="image">
+						<left>425r</left>
+						<top>400</top>
+						<width>390</width>
+						<height>530</height>
+						<aspectratio aligny="bottom">stretch</aspectratio>
+						<texture>shell/dvd.png</texture>
+						<visible>String.Contains(ListItem.VideoResolution,576)</visible>
+					</control>
+					<control type="image">
+						<left>425r</left>
+						<top>400</top>
+						<width>390</width>
+						<height>530</height>
+						<aspectratio aligny="bottom">stretch</aspectratio>
+						<texture>shell/1080p.png</texture>
+						<visible>String.Contains(ListItem.VideoResolution,720)</visible>
+					</control>
+					<control type="image">
+						<left>425r</left>
+						<top>400</top>
+						<width>390</width>
+						<height>530</height>
+						<aspectratio aligny="bottom">stretch</aspectratio>
+						<texture>shell/1080p.png</texture>
+						<visible>String.Contains(ListItem.VideoResolution,1080)</visible>
+					</control>
+					<control type="image">
+						<left>425r</left>
+						<top>400</top>
+						<width>390</width>
+						<height>530</height>
+						<aspectratio aligny="bottom">stretch</aspectratio>
+						<texture background="true">shell/4k.png</texture>
+						<visible>String.Contains(ListItem.VideoResolution,4k)</visible>
+					</control>
+					
+				</control>
+				<control type="image">
+					<visible>Skin.HasSetting(HideShellVideo)</visible>
+					<visible>Library.HasContent(TVShows)</visible>
+					<left>425r</left>
+					<top>400</top>
+					<width>390</width>
+					<height>530</height>
+					<aspectratio aligny="bottom">stretch</aspectratio>
+					<texture>shell/tvshow.png</texture>
+					<visible>Container.Content(TVShows) | Container.Content(Seasons)</visible>
+					<visible>!String.IsEmpty(ListItem.Genre)</visible>
+				</control>
+				<control type="label">
+					<visible>Skin.HasSetting(HideShellVideo)</visible>
+					<visible>Library.HasContent(TVShows)</visible>
+					<left>425r</left>
+					<top>408</top>
+					<width>390</width>
+					<height>35</height>
+					<font>label</font>
+					<align>center</align>
+					<aligny>center</aligny>
+					<textcolor>white</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<label>[B]SERIE[/B]</label>
+					<visible>Container.Content(TVShows) | Container.Content(Seasons)</visible>
+					<visible>!String.IsEmpty(ListItem.Genre)</visible>
+				</control>
+			</control>
+			<control type="group">
+			<visible>Container.Content(Movies) | Container.Content(Seasons) | Container.Content(TVShows) | Container.Content(Episodes)</visible>
+			<visible>!String.IsEmpty(ListItem.Genre)</visible>
+			<control type="image">
+				<visible>Skin.HasSetting(HideFlagVideo)</visible>
+				<left>800r</left>
+				<top>500</top>
+				<width>90</width>
+				<height>78</height>
+				<aspectratio>keep</aspectratio>
+				<texture colordiffuse="black">$VAR[mpaa]</texture>
+			</control>
+			<control type="image">
+				<visible>Skin.HasSetting(HideFlagVideo)</visible>
+				<left>800r</left>
+				<top>500</top>
+				<width>90</width>
+				<height>78</height>
+				<aspectratio>keep</aspectratio>
+				<texture>$VAR[mpaa]</texture>
+			</control>
+			</control>
+			<control type="scrollbar" id="650">
+				<left>710</left>
+				<top>25</top>
+				<width>5</width>
+				<height>900</height>
+				<onleft>50</onleft>
+				<onright>996</onright>
+				<orientation>vertical</orientation>
+			</control>
+		</control>
+	</include>
+</includes>
